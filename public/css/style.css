@@ -1,0 +1,312 @@
+/* OVERLAY
+=========================== */
+.overlaya {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    z-index: 99;
+}
+
+.firsta {
+    background: #74e7ef;
+}
+
+.seconda {
+    background: #74e7ef;
+    left: 33.3%;
+}
+
+.thirda {
+    background: #74e7ef;
+    left: 66.6%;
+}
+
+/* SLICK
+=========================== */
+
+.for_slick_slider {
+    display: flex;
+}
+
+.for_slick_slider .items {
+    width: 350px;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+    transition: margin-top 0.5s;
+    /* margin: 50px; */
+}
+
+.for_slick_slider:hover .items:hover {
+    width: 350px;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-left: 6px;
+    margin-right: 6px;
+    /* margin: 50px; */
+    /* -webkit-animation: bounce 2s; */
+    /* animation-duration: 5s; */
+}
+
+
+.for_slick_slider2 {
+    display: flex;
+
+}
+
+.for_slick_slider2 .items {
+    width: auto;
+    height: auto;
+    margin: 20px 20px;
+
+    transition: margin-top 0.5s;
+    /* margin: 50px; */
+}
+
+.for_slick_slider3 {
+    display: flex;
+}
+
+.for_slick_slider3 .items {
+    width: auto;
+    height: auto;
+    margin: 20px 20px;
+
+    transition: margin-top 0.5s;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #6e7d91;
+    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 14%);
+    border-radius: 20px;
+    white-space: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* margin: 50px; */
+
+
+.slick-prev,
+.slick-next {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: 5px;
+    margin-top: 150px;
+}
+
+.slick-next {
+    margin-left: 15px;
+    right: 5px;
+    margin-top: 150px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px;
+    /* text-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+
+.prev {
+    display: block;
+    border: none;
+    height: 50px;
+    width: 210px;
+    cursor: pointer;
+    background: url('../img/kiri.png') no-repeat;
+}
+
+.next {
+    display: block;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 210px;
+    background: url('../img/kanan.png') no-repeat;
+}
+
+@media screen and (min-width: 601px) {
+    /* div.for_slick_slider.multiple_items{
+    margin-bottom: -2000px;
+  } */
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    /* div.for_slick_slider{
+
+
+    margin-top: 10px;
+  } */
+
+    div.items.card.mb-4.form-wrap-main {
+        width: auto;
+        height: auto;
+        margin: 20px 15px;
+
+        transition: margin-top 0.5s;
+        /* margin: 50px; */
+    }
+
+    div.items.gg {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+/* RANGE
+=========================== */
+
+.box{
+    background: white;
+    padding: 5px 5px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0,0,0,0,5);
+    display: flex;
+    align-items: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.box .slider input{
+    height: 10px;
+    width: 200px;
+    -webkit-appearance: none;
+    outline: none;
+    background: #f2f2f2;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.box .value{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Poppins',sans-serif;
+    color: #f59f1e;
+    text-align: center;
+    margin-left: 30%;
+}
+
+/* Form  Wizard
+=========================== */
+
+.form-conwiz{
+    width: 100%;
+    border-radius: 10px;
+    padding:10px;
+    border: 2px solid #fe7b54;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Pasang Kandidat
+=========================== */
+
+/* .accordion{
+    display:inline-block;
+    width:100%;
+    margin-bottom:10px
+}
+.accordion .accordion-header,.accordion .accordion-body{
+    padding:10px 15px
+}
+.accordion .accordion-header{
+    background-color:#ffffff;
+    border-radius:0px;
+    cursor:pointer;
+    transition:all 0.5s;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    -ms-border-radius:0px;
+    -o-border-radius:0px;
+    -webkit-transition:all 0.5s;
+    -moz-transition:all 0.5s;
+    -ms-transition:all 0.5s;
+    -o-transition:all 0.5s;
+}
+.accordion .accordion-header h4{
+    line-height:1;
+    margin:0;
+    font-size:14px;
+    font-weight:700}
+.accordion .accordion-header:hover{
+    background-color:#ffffff
+}
+.accordion .accordion-header[aria-expanded="true"]{
+    box-shadow:0 2px 6px #ffffff;
+    background-color:#ffffff;
+    color:rgb(255, 255, 255)
+}
+.accordion .accordion-body{
+    line-height:24px
+} */
+
+.accordion {
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+  .accordion-item {
+    background-color: #FFF3DE;
+    color: #111;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+  .accordion-item-header {
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    min-height: 3.5rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .accordion-item-header::after {
+    content: "\002B";
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+  }
+  .accordion-item-header.active::after {
+    content: "\2212";
+  }
+  .accordion-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .accordion-item-body-content {
+    padding: 1rem;
+    line-height: 1.5rem;
+    border-top: 2px solid;
+    border-image: linear-gradient(to right, transparent, #FEE5BA, transparent) 1;
+  }
+
+  .accordion-item h5{
+      padding-right: 25px;
+  }
+
+  .accordion-item h6{
+    padding-right: 25px;
+}
+
