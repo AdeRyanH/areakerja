@@ -161,6 +161,22 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="/admin/cabang" class="nav-link {{ request()->is('admin/cabang') || request()->is('admin/cabang/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-map-marker-alt nav-icon">
+
+                    </i>
+                    Cabang
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/contact" class="nav-link {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-user nav-icon">
+
+                    </i>
+                    Contact
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
 
@@ -171,6 +187,6 @@
         </ul>
 
     </nav>
-    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    {{-- <button class="sidebar-minimizer brand-minimizer" type="button"></button> --}}
 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -61,6 +62,9 @@ class ArtikelController extends Controller
         $title       = 'Artikel';
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
 
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+
         return view(
             'artikel.index',
             compact([
@@ -75,6 +79,8 @@ class ArtikelController extends Controller
                 'article',
                 'wishlist',
                 'riwayatlist',
+                'cabang',
+                'cabanghr'
             ])
         );
     }
@@ -113,6 +119,9 @@ class ArtikelController extends Controller
         $title       = $art->judul;
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
 
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+
         return view(
             'artikel.show',
             compact([
@@ -126,6 +135,8 @@ class ArtikelController extends Controller
                 'sidebarCategories',
                 'art',
                 'riwayatlist',
+                'cabang',
+                'cabanghr'
             ])
         );
     }

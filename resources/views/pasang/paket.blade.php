@@ -9,6 +9,8 @@
     <meta property="og:description"
         content="Platform lowongan kerja no. 1 untuk mendapatkan talenta terbaik bagi perusahaan anda">
     <meta property="og:image" content="{{ asset('img/img-01.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/68eba8d306.css" crossorigin="anonymous">
 @endsection
 
 @section('home')
@@ -28,7 +30,7 @@
                         </h2>
                         <h4 class="pasang" style="color: #fe7b54;line-height: 2!important;font-weight: 500 ">
                             Platform lowongan kerja no. 1 <br />untuk mendapatkan talenta terbaik bagi
-                            perusahaan anda
+                            perusahaan anda<i class="fa-brands fa-whatsapp"></i>
                         </h4>
 
                     </div>
@@ -193,7 +195,7 @@
             </div>
         </div>
         <div class="row mb-3 justify-content-around text-center mt-5">
-            @foreach ($paket2 as $pak)
+            {{-- @foreach ($paket2 as $pak)
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
                     <a href="{{ route('daftarmitra') }}">
                         <div class="card mb-4 form-wrap-main2"
@@ -227,11 +229,71 @@
                         </div>
                     </a>
                 </div>
+            @endforeach --}}
 
-            @endforeach
-            @foreach ($paket as $pak)
+            @foreach ($paket2 as $pak)
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#pop{{ $pak->id }}">
+                        <div class="card mb-4 form-wrap-main2"
+                            style="border-radius: 25px; border:5px solid {{ $pak->warna }} ">
+                            <div class="card-header pt-3 pb-4"
+                                style="border-radius:  25px 25px 200px 200px/25px 25px 45px 45px; height: auto;background-color: {{ $pak->warna }}">
+                                <h1 class="my-0 fw-normal mb-1 text-white text-bold">{{ $pak->nama }}</h1>
+                                <h4 class="my-0 fw-normal text-white">{{ $pak->deskripsi_singkat }}</h4>
+                            </div>
+                            <div class="card-body ">
+                                <h4 style="font-weight: normal;display: block; line-height: 1.6 !important; ">
+                                    {!! $pak->deskripsi_full !!}</h4>
+                                <div class="col-11 col-sm-10 mx-auto no-padding">
+                                    <ul class="text-left mb-4">
+                                        @foreach ($pak->list as $fitur)
+                                            <h5 class="mb-3" style="font-weight: normal;">{!! $fitur !!}
+                                            </h5>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <hr />
+                            </div>
+                            <div class="card-footer pt-4 pb-3"
+                                style="border-radius:  200px 200px 25px 25px/45px 45px 25px 25px; height: auto;background-color: {{ $pak->warna }}">
+                                <h3 class="my-0 fw-normal mb-1 text-white">Rp
+                                    {{ number_format($pak->harga, 0, '.', '.') }}
+                                </h3>
+                                <p class="my-0 fw-normal text-white">Gabung Mitra Sekarang</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
+                <!-- PopUp -->
+                <div class="modal fade" id="pop{{ $pak->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: {{ $pak->warna }}">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white">{{ $pak->nama }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                 @foreach ($contact as $c)
+                                    <div class="">
+                                        <a href="https://wa.me/{{ $c->contact }}" style="text-decoration: none">
+                                            <center><img src="/img/whatsapp.png" alt="..." style="height: 75px; margin-right: 6px"><span style="font-size: 30px; color: #25b411"><strong>{{ $c->name }}</strong></span></center>
+                                            @if(!($c->id == $contacthr->id))
+                                                <hr>
+                                            @endif
+                                        </a>
+                                    </div>
+                                @endforeach
+                                <div class="" style="margin-bottom: 30px"></div>
+                                <p style="font-size: 20px; color: black">Tim kami akan memberikan bantuan bergabung melalui WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            {{-- @foreach ($paket as $pak)
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
                     <a href="{{ route('pasang', $pak->nama) }}">
                         <div class="card mb-4 form-wrap-main" style="border-radius: 25px;">
                             <div class="card-header pt-3 pb-4"
@@ -263,7 +325,67 @@
                         </div>
                     </a>
                 </div>
+            @endforeach --}}
 
+            @foreach ($paket as $pak)
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#pop{{ $pak->id }}">
+                        <div class="card mb-4 form-wrap-main" style="border-radius: 25px;">
+                            <div class="card-header pt-3 pb-4"
+                                style="border-radius:  25px 25px 200px 200px/25px 25px 45px 45px; height: auto;background-color: {{ $pak->warna }}">
+                                <h1 class="my-0 fw-normal mb-1 text-white text-bold">{{ $pak->nama }}</h1>
+                                <h4 class="my-0 fw-normal text-white">{{ $pak->deskripsi_singkat }}</h4>
+                            </div>
+                            <div class="card-body ">
+                                <h4 style="font-weight: normal;display: block; line-height: 1.6 !important; ">
+                                    {!! $pak->deskripsi_full !!}</h4>
+                                <div class="col-11 col-sm-10 mx-auto no-padding">
+                                    <ul class="text-left mb-4">
+                                        @foreach ($pak->list as $fitur)
+                                            <h5 class="mb-3" style="font-weight: normal;">{!! $fitur !!}
+                                            </h5>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <hr />
+                            </div>
+                            <div class="card-footer pt-4 pb-3"
+                                style="border-radius:  200px 200px 25px 25px/45px 45px 25px 25px; height: auto;background-color: {{ $pak->warna }}">
+
+                                <h3 class="my-0 fw-normal mb-1 text-white">Rp
+                                    {{ number_format($pak->harga, 0, '.', '.') }}
+                                </h3>
+                                <p class="my-0 fw-normal text-white">Pasang Lowongan Sekarang</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- PopUp -->
+                <div class="modal fade" id="pop{{ $pak->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: {{ $pak->warna }}">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color : white">{{ $pak->nama }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @foreach ($contact as $c)
+                                    <div class="">
+                                        <a href="https://wa.me/{{ $c->contact }}" style="text-decoration: none">
+                                            <center><img src="/img/whatsapp.png" alt="..." style="max-height: 75px; margin-right: 6px"><span style="font-size: 30px; color: #25b411"><strong>{{ $c->name }}</strong></span></center>
+                                            @if(!($c->id == $contacthr->id))
+                                                <hr>
+                                            @endif
+                                        </a>
+                                    </div>
+                                @endforeach
+                                <div class="" style="margin-bottom: 30px"></div>
+                                <p style="font-size: 20px; color: black">Tim kami akan memberikan bantuan pemasangan melalui WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endforeach
 
     </section>
@@ -393,5 +515,6 @@
             </div>
 
         </div>
-
-    @endsection
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/68eba8d306.js" crossorigin="anonymous"></script>
+@endsection

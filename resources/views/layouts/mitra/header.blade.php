@@ -6,11 +6,11 @@
                     <i data-feather="align-justify"></i>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#" class="nav-link nav-link-lg fullscreen-btn">
                     <i data-feather="maximize"></i>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
     <ul class="navbar-nav navbar-right">

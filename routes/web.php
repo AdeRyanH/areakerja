@@ -226,4 +226,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('lowonganmitra', 'LowonganMitraController');
     Route::get('/addjob/mitra/{id}', [AdminLowonganMitraController::class, 'addjob'])->name('addjobmitra');
     Route::post('/addjob', [AdminLowonganMitraController::class, 'storejob'])->name('lowonganmitra.storejob');
+
+
+    //cabang
+    Route::get('/cabang', 'CabangController@index');
+    Route::get('/cabang/create', 'CabangController@create');
+    Route::post('/cabang/store', 'CabangController@store');
+    Route::get('/cabang/edit/{id}', 'CabangController@edit');
+    Route::post('/cabang/update/{id}', 'CabangController@update');
+    Route::get('/cabang/destroy/{id}', 'CabangController@destroy');
+
+    //contact
+    Route::get('/contact', 'contactController@index');
+    Route::get('/contact/create', 'contactController@create');
+    Route::post('/contact/store', 'contactController@store');
+    Route::get('/contact/edit/{id}', 'contactController@edit');
+    Route::post('/contact/update/{id}', 'contactController@update');
+    Route::get('/contact/destroy/{id}', 'contactController@destroy');
 });

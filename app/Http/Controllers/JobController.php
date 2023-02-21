@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cabang;
 use App\Models\Category;
+use App\Models\contact;
 use App\Models\Job;
 use App\Models\Location;
 use App\Models\MainSkill;
@@ -45,6 +47,8 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Lowongan Kerja di Yogyakarta';
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
         return view(
             'jobs.index',
@@ -55,6 +59,8 @@ class JobController extends Controller
                 'searchLocations',
                 'searchCategories',
                 'sidbarJobs', 'riwayatlist', 'wishlist', 'ipaddress', 'wishh',
+                'cabang',
+                'cabanghr',
             ])
         );
     }
@@ -88,11 +94,15 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
 
         $title = 'Lowongan Kerja ' . $job->title . ' di ' . $job->company->name;
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
         // Alert::success('Sukses Membuka');
 
         return view(
             'jobs.show',
-            compact(['title', 'job', 'riwayatlist', 'searchLocations', 'searchCategories', 'wishlist', 'ipaddress', 'wishh'])
+            compact(['title', 'job', 'riwayatlist', 'searchLocations', 'searchCategories', 'wishlist', 'ipaddress', 'wishh',
+                'cabang',
+                'cabanghr',])
         );
     }
 
@@ -271,6 +281,11 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
         $title       = 'Pasang Lowongan Kerja';
 
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+        $contact = contact::get();
+        $contacthr = contact::get()->last();
+
         return view(
             'pasang.paket',
             compact([
@@ -285,6 +300,10 @@ class JobController extends Controller
                 'sidebarLocations',
                 'sidebarCategories',
                 'riwayatlist',
+                'cabang',
+                'cabanghr',
+                'contact',
+                'contacthr'
             ])
         );
     }

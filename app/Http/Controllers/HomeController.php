@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
 use App\Mail\SendMail2;
+use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -57,8 +58,11 @@ class HomeController extends Controller
             ->get();
 
         $title = 'Lowongan Kerja di Yogyakarta';
+        
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh']));
+        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr']));
     }
 
     public function search(Request $request)
