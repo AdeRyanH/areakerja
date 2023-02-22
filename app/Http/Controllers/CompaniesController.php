@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Job;
@@ -55,6 +56,9 @@ class CompaniesController extends Controller
             ->take(0)
             ->get();
 
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+        
         return view('company.index', compact(
             'title',
             'wishh',
@@ -67,7 +71,9 @@ class CompaniesController extends Controller
             'wishlist',
             'sidebarJobs',
             'ipaddress',
-            'sidebarCategories'
+            'sidebarCategories',
+            'cabang',
+            'cabanghr'
         ));
     }
 }

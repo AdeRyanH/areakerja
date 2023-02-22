@@ -109,15 +109,19 @@ class HomeController extends Controller
         // echo Carbon::now()->diffForHumans();
 
         $title = 'Tentang Kami';
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
-        return view('user.aboutus', compact(['title']));
+        return view('user.aboutus', compact(['title','cabang','cabanghr']));
     }
 
     public function kontak()
     {
         $title = 'Kontak Kami';
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
-        return view('user.kontak', compact(['title']));
+        return view('user.kontak', compact(['title','cabang','cabanghr']));
     }
 
     public function formpasang(Request $request)

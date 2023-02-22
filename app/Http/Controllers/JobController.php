@@ -364,6 +364,8 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Rekomendasi Lowongan Kerja';
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
         return view(
             'jobs.rekomendasi',
@@ -373,7 +375,7 @@ class JobController extends Controller
                 'banner',
                 'searchLocations',
                 'searchCategories',
-                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh',
+                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','cabang','cabanghr'
             ])
         );
     }
