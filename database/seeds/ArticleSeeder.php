@@ -456,7 +456,7 @@ class ArticleSeeder extends Seeder
         $article->save();
 
         $article = Article::create([
-            'judul'     => 'Bisnis Unik untuk Ibu Rumah Tangga Lulusan SMA/SMK',
+            'judul'     => 'Bisnis Unik untuk Ibu Rumah Tangga Lulusan SMA-SMK',
             'slug'      => 'Bisnis-Unik-untuk-Ibu-Rumah-Tangga-Lulusan-SMA-SMK',
             'ringkasan' => 'Anda seorang ibu rumah tangga yang ingin mendapat tambahan pemasukan? Mau tahu caranya biar dapat uang tambahan?',
             'content'   => '<p>Seorang ibu rumah tangga tentu tak melulu mengisi aktivitasnya di rumah saja.</p>

@@ -115,10 +115,10 @@ class ArtikelController extends Controller
             ->whereHas('jobs')
             ->orderBy('jobs_count', 'desc')
             ->get();
-
+            
         $title       = $art->judul;
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
-
+        
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
 

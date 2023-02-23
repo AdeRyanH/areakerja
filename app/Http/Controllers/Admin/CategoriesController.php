@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Alert;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyCategoryRequest;
 use App\Http\Requests\StoreCategoryRequest;
@@ -10,6 +9,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Gate;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\Response;
 
 class CategoriesController extends Controller
@@ -40,6 +40,7 @@ class CategoriesController extends Controller
             'slug' => $slug,
         ]);
 
+        Alert::success('Success', 'Category Berhasil Ditambahkan!');
         return redirect()->route('admin.categories.index');
     }
 
@@ -52,8 +53,20 @@ class CategoriesController extends Controller
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->update($request->all());
+        $request->validate([
+           'name'=> 'required' 
+        ]);
 
+        $slug = $request->name;
+        
+        $data = ([
+            'name' => $request->name,
+            'slug' => $slug,
+        ]);
+        
+        $category->update($data);
+
+        Alert::success('Success', 'Category Berhasil Dihapus!');
         return redirect()->route('admin.categories.index');
     }
 
@@ -68,7 +81,7 @@ class CategoriesController extends Controller
     {
         // abort_if(Gate::denies('category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        Alert::success('Success Title', 'Success Message');
+        Alert::success('Success', 'Category Berhasil Dihapus!');
 
         $category->delete();
 
