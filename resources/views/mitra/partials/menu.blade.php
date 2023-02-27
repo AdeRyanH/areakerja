@@ -73,7 +73,7 @@
 </div>
 
 <!-- setting tema-->
-<div class="settingSidebar">
+{{-- <div class="settingSidebar">
     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
     </a>
     <div class="settingSidebar-body ps-container ps-theme-default">
@@ -148,7 +148,7 @@
                     <label class="m-b-0">
                         <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" id="sticky_header_setting">
                         <span class="custom-switch-indicator"></span>
-                        <span class="control-label p-l-10">Sticky Header</span>
+                        <span class="control-label p-l-10">Sticky Header</span> 
                     </label>
                 </div>
             </div>
@@ -159,4 +159,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

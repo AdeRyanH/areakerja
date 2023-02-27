@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -48,7 +49,9 @@ class CategoryController extends Controller
 
         $banner = 'Category: ' . $category->name;
         $title  = 'Kategori Pekerjaan' . ' ' . $category->name;
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs','cabang','cabanghr']));
     }
 }

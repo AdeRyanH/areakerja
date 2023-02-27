@@ -100,7 +100,10 @@ class HomeController extends Controller
         $banner = 'Search results';
         $title  = 'Lowongan Kerja di Yogyakarta';
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories']));
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories','cabang','cabanghr']));
     }
 
     public function aboutus()
