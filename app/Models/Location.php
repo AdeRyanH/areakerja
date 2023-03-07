@@ -15,7 +15,6 @@ class Location extends Model
     protected $fillable = [
         'name',
         'slug',
-        'province_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -24,9 +23,5 @@ class Location extends Model
     public function jobs()
     {
         return $this->hasMany(Job::class, 'location_id', 'id');
-    }
-
-    public function province() {
-        return $this->belongsTo(province::class, 'id');
     }
 }

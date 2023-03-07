@@ -6,7 +6,6 @@ use Database\Seeders\MitraSeeder;
 use Database\Seeders\OrganisasiSeeder;
 use Database\Seeders\PengalamanSeeder;
 use Database\Seeders\PriceSeeder;
-use Database\Seeders\ProvinceSeeder;
 use Database\Seeders\RiwayatPendidikanSeeder;
 use Database\Seeders\SertifikasiSeeder;
 use Database\Seeders\SkillSeeder;
@@ -17,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ProvinceSeeder::class,
             ArticleSeeder::class,
             PermissionsTableSeeder::class,
             RolesTableSeeder::class,

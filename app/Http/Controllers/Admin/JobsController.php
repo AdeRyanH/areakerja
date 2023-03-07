@@ -12,7 +12,6 @@ use App\Models\Job;
 use App\Models\Location;
 use App\Models\Lowongan;
 use App\Models\Lowonganmitra;
-use App\Models\province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -36,15 +35,13 @@ class JobsController extends Controller
 
         $categories = Category::all()->pluck('name', 'id');
 
-        $province = province::all();
-
-        return view('admin.jobs.create', compact('companies', 'locations', 'categories','province'));
+        return view('admin.jobs.create', compact('companies', 'locations', 'categories'));
     }
 
     public function store(StoreJobRequest $request)
     {
-        // $imglowongan = Company::where('id', $request->company_id)->first('gambar');
-        // File::copy(public_path("storage/tmpcompanylogo/{$imglowongan->gambar}"), public_path("img/companylogo/{$imglowongan->gambar}"));
+        $imglowongan = Lowongan::where('id', $request->id)->first('gambar');
+        File::copy(public_path("storage/tmpcompanylogo/{$imglowongan->gambar}"), public_path("img/companylogo/{$imglowongan->gambar}"));
         $companyName      = Company::where('id', $request->company_id)->first('name');
         $slug_title       = Str::slug($request->get('title'));
         $slug_companyname = Str::slug($companyName->name);
@@ -102,8 +99,8 @@ class JobsController extends Controller
             $job->categories()->sync($request->input('categories', []));
         }
 
-        // $lowongan = Lowongan::where('id', $request->id)->first();
-        // $lowongan->delete();
+        $lowongan = Lowongan::where('id', $request->id)->first();
+        $lowongan->delete();
         // $mitra = Lowonganmitra::where('id', $request['id'])->first();
         // if ($mitra != null) {
         //     $cek = Lowonganmitra::where('status_pemasangan', "Terpasang")->first();

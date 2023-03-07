@@ -11,7 +11,6 @@ use App\Models\Location;
 use App\Models\Lowongan;
 use App\Models\Pembayaran;
 use App\Models\Price;
-use App\Models\province;
 use App\Models\Riwayat;
 use App\Models\Wish;
 use Carbon\Carbon;
@@ -63,9 +62,7 @@ class HomeController extends Controller
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
 
-        $province = province::all(); 
-
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr','province']));
+        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr']));
     }
 
     public function search(Request $request)
@@ -103,11 +100,7 @@ class HomeController extends Controller
         $banner = 'Search results';
         $title  = 'Lowongan Kerja di Yogyakarta';
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
-        $province = province::all(); 
-
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories','cabang','cabanghr','province']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories']));
     }
 
     public function aboutus()
@@ -297,56 +290,4 @@ class HomeController extends Controller
             // return redirect()->to($snap->redirect_url);
         }
     }
-
-
-    public function titid($id)
-    {
-        $ipaddress = '';
-        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } elseif (isset($_SERVER['HTTP_X_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-        } elseif (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-        } elseif (isset($_SERVER['HTTP_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED'];
-        } elseif (isset($_SERVER['REMOTE_ADDR'])) {
-            $ipaddress = $_SERVER['REMOTE_ADDR'];
-        } else {
-            $ipaddress = 'UNKNOWN';
-        }
-        Carbon::setLocale('id');
-        $wishlist         = Wish::where('ip', $ipaddress)->get();
-        $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
-        $searchLocations  = Location::pluck('name', 'id');
-        $job              = Job::where('location_id' , $id)->get();
-        $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
-        $searchCategories = Category::pluck('name', 'id');
-        $searchByCategory = Category::withCount('jobs')
-            ->orderBy('jobs_count', 'desc')
-            ->take(5)
-            ->pluck('name', 'id');
-        $jobs = Job::with('company')
-            ->orderBy('id', 'desc')
-            ->take(5)
-            ->where('location_id', $id)
-            ->get();
-        $sidbarJobs = Job::whereTopRated(true)
-            ->orderBy('id', 'desc')
-            ->get();
-
-        $title = 'Lowongan Kerja di Yogyakarta';
-
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
-
-        $province = province::all();
-
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr', 'province']));
-    }
-
-
-    
 }

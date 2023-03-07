@@ -133,9 +133,9 @@
                     </tbody>
                 </table>
             </div>
-            {{-- <div class="modal-footer">
+            <div class="modal-footer">
                 <a role="button" class="btn btn-outline-close" data-dismiss="modal"><span style="margin-left: -30%">Close</span></a>
-            </div> --}}
+            </div>
         </div>
     </div>
 </div>

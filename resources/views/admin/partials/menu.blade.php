@@ -160,34 +160,6 @@
                     Price
                 </a>
             </li>
-
-            <li class="nav-item nav-dropdown ">
-                <a class="nav-link  nav-dropdown-toggle" href="#">
-                    <i class="fa-fw fas fa-map-marker-alt nav-icon">
-
-                    </i>
-                    Lokasi 
-                </a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a href="/admin/provinces" class="nav-link {{ request()->is('admin/province') || request()->is('admin/province/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-map-marker-alt nav-icon">
-                            </i>
-                            Provinsi
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a href="/admin/cities" class="nav-link {{ request()->is('admin/cities') || request()->is('admin/cities/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-map-marker-alt nav-icon">
-                            </i>
-                            Kota
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="nav-item">
                 <a href="/admin/cabang" class="nav-link {{ request()->is('admin/cabang') || request()->is('admin/cabang/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-map-marker-alt nav-icon">

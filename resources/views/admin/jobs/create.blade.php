@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-@section('styles')
-    @livewireStyles()
-@endsection
 @section('content')
 
 <div class="card">
@@ -51,11 +48,7 @@
                 </p>
             </div>
 
-
-            @livewire('location')
-
-
-            {{-- <div class="form-group {{ $errors->has('location_id') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('location_id') ? 'has-error' : '' }}">
                 <label for="location">Lokasi/Kota*</label>
                 <select name="location_id" id="location" class="form-control select2" required>
                     @foreach($locations as $id => $location)
@@ -67,7 +60,7 @@
                         {{ $errors->first('location_id') }}
                     </em>
                 @endif
-            </div> --}}
+            </div>
 
             <div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
                 <label for="address">Kecamatan</label>
@@ -289,7 +282,4 @@
 
     </div>
 </div>
-@endsection
-@section('scripts')
-    @livewireScripts()
 @endsection
