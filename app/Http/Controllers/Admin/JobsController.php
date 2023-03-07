@@ -12,6 +12,7 @@ use App\Models\Job;
 use App\Models\Location;
 use App\Models\Lowongan;
 use App\Models\Lowonganmitra;
+use App\Models\province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -35,7 +36,9 @@ class JobsController extends Controller
 
         $categories = Category::all()->pluck('name', 'id');
 
-        return view('admin.jobs.create', compact('companies', 'locations', 'categories'));
+        $province = province::all();
+
+        return view('admin.jobs.create', compact('companies', 'locations', 'categories','province'));
     }
 
     public function store(StoreJobRequest $request)

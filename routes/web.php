@@ -33,6 +33,10 @@ Route::get('/company/{slug}', 'CompaniesController@index')->name('compan');
 // Route::resource('artikel', 'ArtikelController')->only(['artikel', 'show']);
 Route::get('/artikel', 'ArtikelController@artikel')->name('artikel');
 Route::get('/artikel/{slug}', 'ArtikelController@show')->name('artikel.show');
+
+
+
+Route::get('/titid/{id}', 'HomeController@titid');
 // Route::get('lamarmail/{parameter}', [
 //     'as'=> 'lamarmail',
 //     'uses'=>'HomeController@lamarmail'
@@ -243,4 +247,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('/contact/edit/{id}', 'contactController@edit');
     Route::post('/contact/update/{id}', 'contactController@update');
     Route::get('/contact/destroy/{id}', 'contactController@destroy');
+
+    //province
+    Route::get('/provinces', 'ProvincesController@index');
+    Route::get('/provinces/create', 'ProvincesController@create');
+    Route::post('/provinces/store', 'ProvincesController@store');
+    Route::get('/provinces/edit/{id}', 'ProvincesController@edit');
+    Route::post('/provinces/update/{id}', 'ProvincesController@update');
+    Route::get('/provinces/destroy/{id}', 'ProvincesController@destroy');
+
+    //City
+    Route::get('/cities', 'CitiesController@index');
+    Route::get('/cities/create', 'CitiesController@create');
+    Route::post('/cities/store', 'CitiesController@store');
+    Route::get('/cities/edit/{id}', 'CitiesController@edit');
+    Route::post('/cities/update/{id}', 'CitiesController@update');
+    Route::get('/cities/destroy/{id}', 'CitiesController@destroy');
+    Route::post('api/fetch-cities', 'CitiesController@dropdown');
+
+    Route::post('/province', 'HomeController@titid');
+
+    
 });
