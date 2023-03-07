@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -48,6 +49,9 @@ class LocationController extends Controller
 
         $title = 'Lowongan Kerja daerah' . ' ' . $location->name;
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs']));
+        $cabang = cabang::get();
+        $cabanghr = cabang::get()->last();
+
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','cabang','cabanghr']));
     }
 }

@@ -23,34 +23,9 @@
                         <span class="fa-fw fas fa-map-marker-alt"></span> Kota Lainnya
                     </a>
                     <ul class="dropdown-menu dropdown-menu-start mt-1">
-                      @foreach ($cabang as $cabang)
+                      @foreach ($province as $province)
                       <li>
-                        <div class="" style="margin-top: 3px;margin-bottom: 3px">
-                          <a href="https://{{ $cabang->url }}" style="color: black">
-                            <div class="row">
-                              <img src="/img/logo_cabang/{{ $cabang->logo }}" style="width: 45px; height: 45px; margin-left: 30px; margin-right: 10px; margin-top: 5px">
-                              <div class="text" style="margin-top: 5px">
-                                <div class="heading">
-                                  <h5>
-                                    <strong>
-                                      {{ $cabang->cabang }}
-                                    </strong>
-                                  </h5>
-                                </div>
-                                <span>
-                                  <small>
-                                    <i>
-                                      {{ $cabang->url }}
-                                    </i>
-                                  </small>
-                                </span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                        @if(!($cabang->id == $cabanghr->id))
-                        <hr>
-                        @endif
+                        <a href="/titid/{{ $province->id }}" class="dropdown-item">{{ $province->province }}</a>
                       </li>
                       @endforeach
                       <li><div class="" style="padding-right: 110px; padding-left: 110px"></div></li>
