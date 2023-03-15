@@ -6,6 +6,7 @@ use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
+use App\Models\province;
 use App\Models\Riwayat;
 use App\Models\Wish;
 
@@ -51,7 +52,8 @@ class LocationController extends Controller
 
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','cabang','cabanghr']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','cabang','cabanghr','province']));
     }
 }

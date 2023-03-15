@@ -24,6 +24,7 @@ class JobsController extends Controller
     public function index()
     {
         $jobs = Job::all();
+        
 
         return view('admin.jobs.index', compact('jobs'));
     }
@@ -98,6 +99,7 @@ class JobsController extends Controller
                 'website'          => $request->website,
                 'full_description' => $request->full_description,
                 'slug'             => $slug,
+                'categories_id'    => $request->categories[0]
             ]);
             $job->categories()->sync($request->input('categories', []));
         }
@@ -135,7 +137,9 @@ class JobsController extends Controller
 
     public function update(UpdateJobRequest $request, Job $job)
     {
-        $job->update($request->all());
+        $data = $request->all();
+        $data['categories_id'] = $request->categories[0];
+        $job->update($data);
         $job->categories()->sync($request->input('categories', []));
 
         return redirect()->route('admin.jobs.index');

@@ -17,15 +17,15 @@ class Location extends Component
         $this->cities = collect();
     }
 
+    public function updatedCountry($value)
+    {
+        $this->cities = Locations::where('province_id', $value)->get();
+        $this->city = $this->cities->first()->id ?? null;
+    }
     
     public function render()
     {   
         return view('livewire.location');
     }
 
-    public function updatedCountry($value)
-    {
-        $this->cities = Locations::where('province_id', $value)->get();
-        $this->city = $this->cities->first()->id ?? null;
-    }
 }

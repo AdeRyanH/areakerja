@@ -25,7 +25,7 @@
                     <ul class="dropdown-menu dropdown-menu-start mt-1">
                       @foreach ($province as $province)
                       <li>
-                        <a href="/titid/{{ $province->id }}" class="dropdown-item">{{ $province->province }}</a>
+                        <a href="/province/{{ $province->id }}" class="dropdown-item">{{ $province->province }}</a>
                       </li>
                       @endforeach
                       <li><div class="" style="padding-right: 110px; padding-left: 110px"></div></li>

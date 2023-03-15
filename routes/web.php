@@ -36,7 +36,9 @@ Route::get('/artikel/{slug}', 'ArtikelController@show')->name('artikel.show');
 
 
 
-Route::get('/titid/{id}', 'HomeController@titid');
+Route::get('/province/{id}', 'HomeController@province');
+
+
 // Route::get('lamarmail/{parameter}', [
 //     'as'=> 'lamarmail',
 //     'uses'=>'HomeController@lamarmail'
@@ -62,7 +64,7 @@ Route::get('/mitra/login', 'AdminCompanyController@login')->name('mitra.login');
 
 Route::post('/formMitra', 'MitraController@index')->name('formMitra');
 
-Route::get('search', 'HomeController@search')->name('search');
+Route::get('/search', 'HomeController@search')->name('search');
 Route::resource('jobs', 'JobController')->only(['index']);
 Route::get('jobs/{slug}', 'JobController@show')->name('jobs.show');
 Route::delete('delete/{id}', 'JobController@delete')->name('jobs.delete');
