@@ -9,6 +9,7 @@ use App\Models\Job;
 use App\Models\Location;
 use App\Models\MainSkill;
 use App\Models\Price;
+use App\Models\province;
 use App\Models\Riwayat;
 use App\Models\Wish;
 use Carbon\Carbon;
@@ -49,6 +50,7 @@ class JobController extends Controller
         $title  = 'Lowongan Kerja di Yogyakarta';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
         return view(
             'jobs.index',
@@ -61,6 +63,7 @@ class JobController extends Controller
                 'sidbarJobs', 'riwayatlist', 'wishlist', 'ipaddress', 'wishh',
                 'cabang',
                 'cabanghr',
+                'province'
             ])
         );
     }
@@ -96,13 +99,15 @@ class JobController extends Controller
         $title = 'Lowongan Kerja ' . $job->title . ' di ' . $job->company->name;
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
         // Alert::success('Sukses Membuka');
 
         return view(
             'jobs.show',
             compact(['title', 'job', 'riwayatlist', 'searchLocations', 'searchCategories', 'wishlist', 'ipaddress', 'wishh',
                 'cabang',
-                'cabanghr',])
+                'cabanghr',
+                'province'])
         );
     }
 
@@ -285,6 +290,7 @@ class JobController extends Controller
         $cabanghr = cabang::get()->last();
         $contact = contact::get();
         $contacthr = contact::get()->last();
+        $province = province::all(); 
 
         return view(
             'pasang.paket',
@@ -303,7 +309,8 @@ class JobController extends Controller
                 'cabang',
                 'cabanghr',
                 'contact',
-                'contacthr'
+                'contacthr',
+                'province'
             ])
         );
     }
@@ -366,6 +373,7 @@ class JobController extends Controller
         $title  = 'Rekomendasi Lowongan Kerja';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
         return view(
             'jobs.rekomendasi',
@@ -375,7 +383,7 @@ class JobController extends Controller
                 'banner',
                 'searchLocations',
                 'searchCategories',
-                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','cabang','cabanghr'
+                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','cabang','cabanghr','province'
             ])
         );
     }

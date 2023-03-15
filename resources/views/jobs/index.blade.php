@@ -35,7 +35,7 @@
                         <div class="clearfix visible-xs"></div>
                         <div class="col-6 col-sm-4">
                             <select class="default-select3" name="location">
-                                <option value="0">All Areas</option>
+                                <option value="">All Areas</option>
                                 @foreach ($searchLocations as $id => $searchLocations)
                                     <option value="{{ $id }}">{{ $searchLocations }}</option>
                                 @endforeach
@@ -44,8 +44,8 @@
                         <!-- Add clearfix for only the required viewport -->
                         <div class="col-6 col-sm-4">
                             <div>
-                                <select class="default-select3" name="location">
-                                    <option value="0">All Categories</option>
+                                <select class="default-select3" name="categories">
+                                    <option value="">All Categories</option>
                                     @foreach ($searchCategories as $id => $searchCategories)
                                         <option value="{{ $id }}">{{ $searchCategories }}</option>
                                     @endforeach

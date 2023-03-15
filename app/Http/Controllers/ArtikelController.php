@@ -7,6 +7,7 @@ use App\Models\cabang;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
+use App\Models\province;
 use App\Models\Riwayat;
 use App\Models\Wish;
 
@@ -64,6 +65,7 @@ class ArtikelController extends Controller
 
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
         return view(
             'artikel.index',
@@ -80,7 +82,8 @@ class ArtikelController extends Controller
                 'wishlist',
                 'riwayatlist',
                 'cabang',
-                'cabanghr'
+                'cabanghr',
+                'province'
             ])
         );
     }
@@ -121,6 +124,7 @@ class ArtikelController extends Controller
         
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
         return view(
             'artikel.show',
@@ -136,7 +140,8 @@ class ArtikelController extends Controller
                 'art',
                 'riwayatlist',
                 'cabang',
-                'cabanghr'
+                'cabanghr',
+                'province'
             ])
         );
     }

@@ -68,7 +68,7 @@ class HomeController extends Controller
         return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr','province']));
     }
 
-    public function search(Request $request)
+    public function search(Request $req)
     {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP'])) {
@@ -92,9 +92,28 @@ class HomeController extends Controller
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
         $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
-        $jobs             = Job::with('company')
-            ->searchResults()
-            ->paginate(7);
+
+
+
+        
+        if ($req->location) {
+            
+        }
+
+        if ($req->categories) {
+        }
+
+        if ($req->location and $req->categories) {
+        }
+        
+        $jobs             = Job::where(['location_id' => $req->location, 'categories_id' => $req->categories])
+        ->with('company')
+        // ->searchResults()
+        ->get();
+
+
+
+        
 
         $sidbarJobs = Job::whereTopRated(true)
             ->orderBy('id', 'desc')
@@ -106,6 +125,7 @@ class HomeController extends Controller
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
         $province = province::all(); 
+        // dd($jobs);
 
         return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories','cabang','cabanghr','province']));
     }
@@ -118,8 +138,9 @@ class HomeController extends Controller
         $title = 'Tentang Kami';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
-        return view('user.aboutus', compact(['title','cabang','cabanghr']));
+        return view('user.aboutus', compact(['title','cabang','cabanghr','province']));
     }
 
     public function kontak()
@@ -127,8 +148,9 @@ class HomeController extends Controller
         $title = 'Kontak Kami';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
+        $province = province::all(); 
 
-        return view('user.kontak', compact(['title','cabang','cabanghr']));
+        return view('user.kontak', compact(['title','cabang','cabanghr','province']));
     }
 
     public function formpasang(Request $request)
@@ -299,7 +321,7 @@ class HomeController extends Controller
     }
 
 
-    public function titid($id)
+    public function province(Request $req,$id)
     {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP'])) {
@@ -320,7 +342,7 @@ class HomeController extends Controller
         Carbon::setLocale('id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Location::where('province_id' , $id)->pluck('name', 'id');
         $job              = Job::where('location_id' , $id)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
         $searchCategories = Category::pluck('name', 'id');

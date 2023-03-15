@@ -39,6 +39,7 @@ class Job extends Model
         'full_description',
         'slug',
         'short_description',
+        'categories_id'
     ];
 
     public function company()
