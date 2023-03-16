@@ -93,28 +93,20 @@ class HomeController extends Controller
         $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
 
-
-
-        
-        if ($req->location) {
-            
-        }
-
-        if ($req->categories) {
-        }
-
         if ($req->location and $req->categories) {
+            $jobs = Job::where('location_id', $req->location)->where('categories_id', $req->categories)->with('company')->get();
+        }
+        elseif ($req->location) {
+            $jobs = Job::where('location_id' , $req->location)->with('company')->get();
+        }
+        elseif ($req->categories) {
+            $jobs = Job::where('categories_id' , $req->categories)->with('company')->get();
         }
         
-        $jobs             = Job::where(['location_id' => $req->location, 'categories_id' => $req->categories])
-        ->with('company')
-        // ->searchResults()
-        ->get();
-
-
-
+        else {
+            $jobs = Job::with('company')->get();
+        }
         
-
         $sidbarJobs = Job::whereTopRated(true)
             ->orderBy('id', 'desc')
             ->get();
@@ -350,11 +342,18 @@ class HomeController extends Controller
             ->orderBy('jobs_count', 'desc')
             ->take(5)
             ->pluck('name', 'id');
-        $jobs = Job::with('company')
-            ->orderBy('id', 'desc')
-            ->take(5)
-            ->where('location_id', $id)
-            ->get();
+
+        $Locationfirst  = Location::where('province_id', $id)->pluck('id')->first();
+        $Locations  = Location::where('province_id', $id)->pluck('id')->forget(0);
+            
+        $querry = Job::Where('location_id', $Locationfirst);
+        foreach ($Locations as $key => $value) {
+            $querry->OrWhere('location_id', $value);
+        }
+        $querry->with('company')->orderBy('id', 'desc');
+
+        $jobs = $querry->get();
+        
         $sidbarJobs = Job::whereTopRated(true)
             ->orderBy('id', 'desc')
             ->get();
