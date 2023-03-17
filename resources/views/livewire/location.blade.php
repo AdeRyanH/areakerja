@@ -12,9 +12,9 @@
     <div class="form-group">
         <label for="location">Location/Kota*</label>
         <select wire:model='city' name="location" id="location" class="form-control select2">
-            @if($cities->count() == 0)
+            {{-- @if($cities->count() == 0) --}}
             <option>You have to select a country before</option>
-            @endif
+            {{-- @endif --}}
             @foreach($cities as $city)
             <option value="{{$city->id}}">{{$city->name}}</option>
             @endforeach

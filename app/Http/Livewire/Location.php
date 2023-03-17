@@ -8,20 +8,22 @@ use Livewire\Component;
 
 class Location extends Component
 {
-    public $countries = [], $cities = [];
-    public $country, $city;
+    public $countries = [];
+    public $cities = [];
+    public $country;
+    public $city;
 
     public function mount()
     {
         $this->countries = province::all();
-        $this->cities = collect();
+        $this->cities = Locations::all();
     }
 
-    public function updatedCountry($value)
-    {
-        $this->cities = Locations::where('province_id', $value)->get();
-        $this->city = $this->cities->first()->id ?? null;
-    }
+    // public function updatedCountry($value)
+    // {
+    //     $this->cities = Locations::where('province_id', $value)->get();
+    //     $this->city = $this->cities->first()->id ?? null;
+    // }
     
     public function render()
     {   
