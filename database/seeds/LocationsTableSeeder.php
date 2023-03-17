@@ -13,9 +13,9 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         $location = Location::create([
-            'name' => 'Lainnya',
-            'slug' => 'lainnya',
-            'province_id' => '1',
+            'name' => 'Magelang',
+            'slug' => 'magelang',
+            'province_id' => '2',
         ]);
         $location->save();
 
@@ -51,6 +51,34 @@ class LocationsTableSeeder extends Seeder
             'name' => 'Gunungkidul',
             'slug' => 'gunungkidul',
             'province_id' => '1',
+        ]);
+        $location->save();
+
+        $location = Location::create([
+            'name' => 'Salatiga',
+            'slug' => 'salatiga',
+            'province_id' => '2',
+        ]);
+        $location->save();
+        
+        $location = Location::create([
+            'name' => 'Tegal',
+            'slug' => 'tegal',
+            'province_id' => '2',
+        ]);
+        $location->save();
+
+        $location = Location::create([
+            'name' => 'Madiun',
+            'slug' => 'madiun',
+            'province_id' => '3',
+        ]);
+        $location->save();
+
+        $location = Location::create([
+            'name' => 'Ponorogo',
+            'slug' => 'ponorogo',
+            'province_id' => '3',
         ]);
         $location->save();
     }

@@ -18,5 +18,15 @@ class ProvinceSeeder extends Seeder
             'province'=> 'DI Yogyakarta'
         ]);
         $province->save();
+
+        $province = province::create([
+            'province' => 'Jawa Tengah'
+        ]);
+        $province->save();
+
+        $province = province::create([
+            'province' => 'Jawa Timur'
+        ]);
+        $province->save();
     }
 }
