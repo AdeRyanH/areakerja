@@ -10,13 +10,13 @@
                             <a href= #>Artikel</a>
                         </li> --}}
                         <li>
-                            <a href="{{ route('aboutus') }}">Tentang Kami</a>
+                            <a href="{{ request()->segment(1)=='aboutus' ? '#' : route('aboutus') }}">Tentang Kami</a>
                         </li>
                         <li>
-                            <a href="{{ route('kontak') }}">Kontak Kami</a>
+                            <a href="{{ request()->segment(1)=='kontak' ? '#' : route('kontak') }}">Kontak Kami</a>
                         </li>
                         <li>
-                            <a href="#">Pasang Lowongan</a>
+                            <a href="{{ request()->segment(1)=='pilihpaket' ? '#' : route('pilihpaket') }}">Pasang Lowongan</a>
                         </li>
                     </ul>
                 </div>
@@ -40,20 +40,16 @@
                     <ul class="col row">
 
                         <li>
-                            <a href="https://www.instagram.com/areakerjacom/"><i class="fa fa-instagram"
-                                    style="font-size:36px"></i></a>
+                            <a href="https://www.instagram.com/areakerjacom/"><i class="fa fa-instagram" style="font-size:36px"></i></a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}"><i class="fa fa-facebook-square"
-                                    style="font-size:36px"></i></a>
+                            <a href="{{ route('home') }}"><i class="fa fa-facebook-square" style="font-size:36px"></i></a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}"><i class="fa fa-twitter-square"
-                                    style="font-size:36px"></i></a>
+                            <a href="{{ route('home') }}"><i class="fa fa-twitter-square" style="font-size:36px"></i></a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}"><i class="fa fa-linkedin-square"
-                                    style="font-size:36px"></i></a>
+                            <a href="{{ route('home') }}"><i class="fa fa-linkedin-square" style="font-size:36px"></i></a>
                         </li>
                         <li>
                             <a href="{{ route('home') }}"><i class="fa fa-telegram" style="font-size:36px"></i></a>

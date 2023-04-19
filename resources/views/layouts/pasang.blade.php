@@ -26,8 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style>
         body,
         wrapper {
@@ -113,7 +112,6 @@
             float: left;
             width: 30%;
         }
-
     </style>
 </head>
 
@@ -146,8 +144,7 @@
     </div>
 
     <script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
@@ -213,7 +210,7 @@
                 i++;
                 $('#dynamic_field').append('<tr id="row' + i +
                     '" class="dynamic-added"><td><input id="namasekolah" name="namasekolah" type="text" class="form-control2 " value="" required="" data-type="text" aria-required="true" placeholder="Nama Sekolah" style="width: 100%;border-radius: 10px; padding:10px; border: 2px solid #fe7b54;font-family: Poppins, sans-serif;"></td><td><input id="tahun" name="tahun" type="text" class="form-control2 " value="" required="" data-type="text" aria-required="true" placeholder="Tahun Belajar (2016-2019)" style="width: 100%;border-radius: 10px; padding:10px; border: 2px solid #fe7b54;font-family: Poppins, sans-serif;"><td><button type="button" name="remove" id="' +
-                    i +'" class="btn btn-area btn_remove">X</button></td></tr>');
+                    i + '" class="btn btn-area btn_remove">X</button></td></tr>');
             });
 
             $('#add2').click(function() {
@@ -225,7 +222,8 @@
                     '">50 </div><span style="color:#f77f10;">%</span><div class="slider"><input type="range" min="0" max="100" value="50" id="costum-slider' +
                     r + '"></div></div></td><td><button type="button" name="remove" id="' +
                     i2 +
-                    '" class="btn btn-area btn_remove">X</button></td></tr><script src="{{ asset('js/slider.js') }}" />'
+                    '" class="btn btn-area btn_remove">X</button></td></tr><script src="{{ asset('
+                    js / slider.js ') }}" />'
                 );
                 // window['pre_' + r] = 'a';
                 // console.log('pre' + r);
@@ -411,13 +409,12 @@
             // console.log($(this).index());
         });
 
-        $('slider').on('afterChange', function (event, slick, currentSlide) {
+        $('slider').on('afterChange', function(event, slick, currentSlide) {
             $('.slider-nav').slick('slickGoTo', currentSlide);
             var currrentNavSlideElem = '.slider-nav .sl[data-slick-index="' + currentSlide + '"]';
             $('.slider-nav .sl.1.active').removeClass('active');
             $(currrentNavSlideElem).addClass('active');
         });
-
     </script>
     @include('sweetalert::alert')
 
