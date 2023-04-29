@@ -37,7 +37,7 @@
     @include('partials.header')
     <img src="{{ url('img/up.png') }}" onclick="topFunction()" id="myBtn" title="Go to top" class="myBtn">
 
-    {{-- @nclude('partials.banner') --}}
+    {{-- @include('partials.banner') --}}
 
     @yield('home')
 

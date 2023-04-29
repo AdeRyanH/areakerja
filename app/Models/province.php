@@ -1,22 +1,37 @@
 <?php
 
+/*
+ * This file is part of the IndoRegion package.
+ *
+ * (c) Azis Hapidin <azishapidin.com | azishapidin@gmail.com>
+ *
+ */
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use AzisHapidin\IndoRegion\Traits\ProvinceTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class province extends Model
+/**
+ * Province Model.
+ */
+class Province extends Model
 {
-    use HasFactory;
+    use ProvinceTrait;
+    /**
+     * Table name.
+     *
+     * @var string
+     */
+    protected $table = 'provinces';
 
-    public $table    = 'provinces';
-    
-    protected $fillable = [
-      'province'  
-    ];
-
-    public function location()
+    /**
+     * Province has many regencies.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function regencies()
     {
-        return $this->hasMany(Location::class, 'province_id', 'id');
+        return $this->hasMany(Regency::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LocationRelationship extends Migration
+class JobUpdate extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class LocationRelationship extends Migration
      */
     public function up()
     {
-        Schema::table('locations', function (Blueprint $table) {
-            $table->unsignedBigInteger('province_id');
-            $table->foreign('province_id')->references('id')->on('provinces');
+        Schema::table('jobs', function (Blueprint $table) {
+            $table->string('formulir')->after('notelp')->nullable();
         });
     }
 
@@ -26,7 +25,7 @@ class LocationRelationship extends Migration
      */
     public function down()
     {
-        Schema::table('locations', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             //
         });
     }

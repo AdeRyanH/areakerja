@@ -8,6 +8,8 @@ use App\Http\Controllers\TopupController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('ngetes', 'Admin\JobsController@ngetest');
+
 Route::redirect('/home', '/mitra');
 Route::redirect('/awal', '/kandidat');
 Route::redirect('/awal2', '/admin');
@@ -69,7 +71,7 @@ Route::resource('jobs', 'JobController')->only(['index']);
 Route::get('jobs/{slug}', 'JobController@show')->name('jobs.show');
 Route::delete('delete/{id}', 'JobController@delete')->name('jobs.delete');
 Route::get('category/{slug}', 'CategoryController@show')->name('categories.show');
-Route::get('location/{slug}', 'LocationController@show')->name('locations.show');
+Route::get('location/{name}', 'LocationController@show')->name('locations.show');
 Route::get('/getid', 'HomeController@addcart')->name('addcart');
 
 Route::get('/get_client_ip', 'CacheController@get_client_ip')->name('get_client_ip');
@@ -233,15 +235,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('/addjob/mitra/{id}', [AdminLowonganMitraController::class, 'addjob'])->name('addjobmitra');
     Route::post('/addjob', [AdminLowonganMitraController::class, 'storejob'])->name('lowonganmitra.storejob');
 
-
-    //cabang
-    Route::get('/cabang', 'CabangController@index');
-    Route::get('/cabang/create', 'CabangController@create');
-    Route::post('/cabang/store', 'CabangController@store');
-    Route::get('/cabang/edit/{id}', 'CabangController@edit');
-    Route::post('/cabang/update/{id}', 'CabangController@update');
-    Route::get('/cabang/destroy/{id}', 'CabangController@destroy');
-
     //contact
     Route::get('/contact', 'contactController@index');
     Route::get('/contact/create', 'contactController@create');
@@ -249,25 +242,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('/contact/edit/{id}', 'contactController@edit');
     Route::post('/contact/update/{id}', 'contactController@update');
     Route::get('/contact/destroy/{id}', 'contactController@destroy');
-
-    //province
-    Route::get('/provinces', 'ProvincesController@index');
-    Route::get('/provinces/create', 'ProvincesController@create');
-    Route::post('/provinces/store', 'ProvincesController@store');
-    Route::get('/provinces/edit/{id}', 'ProvincesController@edit');
-    Route::post('/provinces/update/{id}', 'ProvincesController@update');
-    Route::get('/provinces/destroy/{id}', 'ProvincesController@destroy');
-
-    //City
-    Route::get('/cities', 'CitiesController@index');
-    Route::get('/cities/create', 'CitiesController@create');
-    Route::post('/cities/store', 'CitiesController@store');
-    Route::get('/cities/edit/{id}', 'CitiesController@edit');
-    Route::post('/cities/update/{id}', 'CitiesController@update');
-    Route::get('/cities/destroy/{id}', 'CitiesController@destroy');
-    Route::post('api/fetch-cities', 'CitiesController@dropdown');
-
-    Route::post('/province', 'HomeController@titid');
-
     
 });

@@ -39,7 +39,7 @@
                         <!-- Add clearfix for only the required viewport -->
                         <div class="col-6 col-sm-4">
                             <div>
-                                <select class="default-select3" name="location">
+                                <select class="default-select3" name="categories">
                                     <option value="0">All Categories</option>
                                     @foreach($searchCategories as $id=>$searchCategories)
                                     <option value="{{ $id }}">{{ $searchCategories }}</option>
@@ -278,7 +278,7 @@
                         <div class="row justify-content-center popuptext" id="myPopup2" style="padding-right: 0px;margin-right: 0px">
                             <ul class="row justify-content-center">
                                 <li style="margin-bottom: 5%; margin-top: 5%">
-                                    <a role="button" class="btn form-pasang4" href="{{ route('login') }}">
+                                    <a role="button" class="btn form-pasang4" href="{{ $job->formulir }}">
                                         <h6 style="font-weight: normal"><span class="fa fa-folder-open-o"></span><span style="display:inline-block; width: 5px;"></span>Formulir</h6>
                                     </a>
                                 </li>

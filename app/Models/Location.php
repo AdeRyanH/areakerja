@@ -21,12 +21,12 @@ class Location extends Model
         'deleted_at',
     ];
 
-    public function jobs()
-    {
-        return $this->hasMany(Job::class, 'location_id', 'id');
-    }
+    // public function jobs()
+    // {
+    //     return $this->hasMany(Job::class, 'location_id', 'id');
+    // }
 
-    public function province() {
-        return $this->belongsTo(province::class, 'id');
-    }
+    // public function province() {
+    //     return $this->belongsTo(province::class, 'id');
+    // }
 }

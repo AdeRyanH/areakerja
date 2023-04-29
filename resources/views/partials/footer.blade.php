@@ -73,8 +73,8 @@
                     <ul class="cat-list-mobile">
                         @foreach ($sidebarLocations as $location)
                         <li>
-                            <a class="justify-content-between d-flex" href="{{ route('locations.show', $location->slug) }}">
-                                <p>{{ $location->name }}</p>
+                            <a class="justify-content-between d-flex" href="{{ route('locations.show', $location->name) }}">
+                                <p>{{ $location->name }}</p><span>{{ $location->jobs_count }}</span>
                             </a>
                         </li>
                         @endforeach

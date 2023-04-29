@@ -26,10 +26,6 @@ class StoreJobRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'location_id' => [
-                'required',
-                'integer',
-            ],
             'categories.*' => [
                 'integer',
             ],

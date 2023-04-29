@@ -6,13 +6,16 @@ use App\Mail\SendMail;
 use App\Mail\SendMail2;
 use App\Models\cabang;
 use App\Models\Category;
+use App\Models\District;
 use App\Models\Job;
 use App\Models\Location;
 use App\Models\Lowongan;
 use App\Models\Pembayaran;
 use App\Models\Price;
 use App\Models\province;
+use App\Models\Regency;
 use App\Models\Riwayat;
+use App\Models\Village;
 use App\Models\Wish;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,7 +45,7 @@ class HomeController extends Controller
         Carbon::setLocale('id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $job              = Job::all();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
         $searchCategories = Category::pluck('name', 'id');
@@ -63,9 +66,14 @@ class HomeController extends Controller
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
 
-        $province = province::all(); 
+        // $province = province::get(); 
 
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr','province']));
+        $regency = Regency::all();
+        $provinsi = province::all();
+
+        // dd($searchLocations);
+
+        return view('index', compact(['title','riwayatlist','wishlist','ipaddress','searchLocations','searchCategories','searchByCategory','jobs','sidbarJobs','wishh','cabang','cabanghr','regency','provinsi']));
     }
 
     public function search(Request $req)
@@ -90,19 +98,30 @@ class HomeController extends Controller
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
 
-        if ($req->location and $req->categories) {
-            $jobs = Job::where('location_id', $req->location)->where('categories_id', $req->categories)->with('company')->get();
+        if ($req->search and $req->location and $req->categories){
+            $jobs = Job::where('title', 'LIKE' , '%' .$req->search. '%')->where('regency_id' , $req->location)->where('categories_id', $req->categories)->with('company')->get();
+        } 
+        elseif ($req->search and $req->location) {
+            $jobs = Job::where('title', 'LIKE', '%' . $req->search . '%')->where('regency_id', $req->location)->with('company')->get();
+        } 
+        elseif ($req->search and $req->categories) {
+            $jobs = Job::where('title', 'LIKE', '%' . $req->search . '%')->where('categories_id', $req->categories)->with('company')->get();
+        }
+        elseif ($req->location and $req->categories) {
+            $jobs = Job::where('regency_id', $req->location)->where('categories_id', $req->categories)->with('company')->get();
         }
         elseif ($req->location) {
-            $jobs = Job::where('location_id' , $req->location)->with('company')->get();
+            $jobs = Job::where('regency_id' , $req->location)->with('company')->get();
         }
         elseif ($req->categories) {
             $jobs = Job::where('categories_id' , $req->categories)->with('company')->get();
+        } 
+        elseif ($req->search) {
+            $jobs = Job::where('title', 'LIKE', '%' . $req->search . '%')->with('company')->get();
         }
-        
         else {
             $jobs = Job::with('company')->get();
         }
@@ -130,9 +149,9 @@ class HomeController extends Controller
         $title = 'Tentang Kami';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all();
 
-        return view('user.aboutus', compact(['title','cabang','cabanghr','province']));
+        return view('user.aboutus', compact(['title','cabang','cabanghr','provinsi']));
     }
 
     public function kontak()
@@ -140,9 +159,9 @@ class HomeController extends Controller
         $title = 'Kontak Kami';
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all();
 
-        return view('user.kontak', compact(['title','cabang','cabanghr','province']));
+        return view('user.kontak', compact(['title','cabang','cabanghr','provinsi']));
     }
 
     public function formpasang(Request $request)
@@ -334,8 +353,8 @@ class HomeController extends Controller
         Carbon::setLocale('id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
-        $searchLocations  = Location::where('province_id' , $id)->pluck('name', 'id');
-        $job              = Job::where('location_id' , $id)->get();
+        $searchLocations  = Regency::where('province_id' , $id)->pluck('name', 'id');
+        $job              = Job::where('regency_id' , $id)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
@@ -343,12 +362,12 @@ class HomeController extends Controller
             ->take(5)
             ->pluck('name', 'id');
 
-        $Locationfirst  = Location::where('province_id', $id)->pluck('id')->first();
-        $Locations  = Location::where('province_id', $id)->pluck('id')->forget(0);
+        $Locationfirst  = Regency::where('province_id', $id)->pluck('id')->first();
+        $Locations  = Regency::where('province_id', $id)->pluck('id')->forget(0);
             
-        $querry = Job::Where('location_id', $Locationfirst);
+        $querry = Job::Where('regency_id', $Locationfirst);
         foreach ($Locations as $key => $value) {
-            $querry->OrWhere('location_id', $value);
+            $querry->OrWhere('regency_id', $value);
         }
         $querry->with('company')->orderBy('id', 'desc');
 
