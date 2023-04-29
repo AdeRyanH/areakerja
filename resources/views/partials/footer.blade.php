@@ -10,7 +10,7 @@
                             <a href= #>Artikel</a>
                         </li> --}}
                         <li>
-                            <a href="{{ route('aboutus') }}">Tentang Kami</a>
+                            <a href="{{ route('aboutus') }}">Tentang Kami {{request()->segment(0)}}</a>
                         </li>
                         <li>
                             <a href="{{ route('kontak') }}">Kontak Kami</a>
