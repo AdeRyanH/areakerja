@@ -89,7 +89,7 @@
                 <hr>
                 <h5 class="sng-dtl" style="margin-left: 5%; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 75%, rgba(0,0,0,0));"><span class="fa fa-hourglass-half" aria-hidden="true"></span> {{ $job->job_nature }}</h5>
                 <hr>
-                <h5 class="sng-dtl" style="margin-left: 5%;margin-bottom: 5%; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 75%, rgba(0,0,0,0));"> <span class="fa fa-map-marker" aria-hidden="true"></span> {{ $job->address }}</h5>
+                <h5 class="sng-dtl" style="margin-left: 5%;margin-bottom: 5%; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 75%, rgba(0,0,0,0));"> <span class="fa fa-map-marker" aria-hidden="true"></span> {{ $job->regencies->name }}</h5>
             </a>
         </div>
     @endforeach
@@ -167,7 +167,7 @@
                     <div class="col-auto">
                         <h5 class="sng-dtl">
                             <span class="fa fa-map-marker" aria-hidden="true"></span>
-                            {{ $job->location->name }}
+                            {{ $job->regencies->name }}
                         </h5>
                     </div>
                 </div>

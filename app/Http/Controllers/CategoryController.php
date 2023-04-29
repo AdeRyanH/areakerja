@@ -52,8 +52,8 @@ class CategoryController extends Controller
         $title  = 'Kategori Pekerjaan' . ' ' . $category->name;
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all();
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs','cabang','cabanghr','province']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs','cabang','cabanghr','provinsi']));
     }
 }

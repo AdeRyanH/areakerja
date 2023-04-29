@@ -13,6 +13,7 @@ use App\Models\Location;
 use App\Models\Lowongan;
 use App\Models\Lowonganmitra;
 use App\Models\province;
+use App\Models\Regency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -37,87 +38,48 @@ class JobsController extends Controller
 
         $categories = Category::all()->pluck('name', 'id');
 
-        $province = province::all();
+        $kota = Regency::all();
 
-        return view('admin.jobs.create', compact('companies', 'locations', 'categories','province'));
+        return view('admin.jobs.create', compact('companies', 'locations', 'categories','kota'));
     }
 
-    public function store(StoreJobRequest $request)
+    public function store(Request $request)
     {
-        // $imglowongan = Company::where('id', $request->company_id)->first('gambar');
-        // File::copy(public_path("storage/tmpcompanylogo/{$imglowongan->gambar}"), public_path("img/companylogo/{$imglowongan->gambar}"));
+        
         $companyName      = Company::where('id', $request->company_id)->first('name');
         $slug_title       = Str::slug($request->get('title'));
         $slug_companyname = Str::slug($companyName->name);
         $slug             = $slug_title . '-di-' . $slug_companyname;
-        if ($request->location_id === 1) {
-            $sluglocation = Str::slug($request->new_location);
-
-            $location       = new Location();
-            $location->name = $request->new_location;
-            $location->slug = $sluglocation;
-            $location->save();
-
-            $job = Job::create([
-                'title'            => $request->title,
-                'salary'           => $request->salary,
-                'address'          => $request->address,
-                'top_rated'        => $request->top_rated,
-                'company_id'       => $request->company_id,
-                'job_nature'       => $request->job_nature,
-                'pendidikan'       => $request->pendidikan,
-                'umur'             => $request->umur,
-                'gender'           => $request->gender,
-                'lokasikerja'      => $request->lokasikerja,
-                'requirements'     => $request->requirements,
-                'bataslamaran'     => $request->bataslamaran,
-                'location_id'      => $location->id,
-                'email'            => $request->email,
-                'notelp'           => $request->notelp,
-                'website'          => $request->website,
-                'full_description' => $request->full_description,
-                'slug'             => $slug,
-            ]);
+        
+        $data = [
+            'title'            => $request->title,
+            'salary'           => $request->salary,
+            'address'          => $request->address,
+            'top_rated'        => $request->top_rated,
+            'company_id'       => $request->company_id,
+            'job_nature'       => $request->job_nature,
+            'pendidikan'       => $request->pendidikan,
+            'umur'             => $request->umur,
+            'gender'           => $request->gender,
+            'lokasikerja'      => $request->lokasikerja,
+            'requirements'     => $request->requirements,
+            'bataslamaran'     => $request->bataslamaran,
+            'email'            => $request->email,
+            'notelp'           => $request->notelp,
+            'website'          => $request->website,
+            'full_description' => $request->full_description,
+            'slug'             => $slug,
+            'categories_id'    => $request->categories[0],
+            'regency_id' => $request->regency_id,
+            'formulir' => $request->formulir
+        ];
+        // dd($data);
+            $job = Job::create($data);
             $job->categories()->sync($request->input('categories', []));
-        } else {
-            $job = Job::create([
-                'title'            => $request->title,
-                'salary'           => $request->salary,
-                'address'          => $request->address,
-                'top_rated'        => $request->top_rated,
-                'company_id'       => $request->company_id,
-                'job_nature'       => $request->job_nature,
-                'pendidikan'       => $request->pendidikan,
-                'umur'             => $request->umur,
-                'gender'           => $request->gender,
-                'lokasikerja'      => $request->lokasikerja,
-                'requirements'     => $request->requirements,
-                'bataslamaran'     => $request->bataslamaran,
-                'location_id'      => $request->location_id,
-                'email'            => $request->email,
-                'notelp'           => $request->notelp,
-                'website'          => $request->website,
-                'full_description' => $request->full_description,
-                'slug'             => $slug,
-                'categories_id'    => $request->categories[0]
-            ]);
-            $job->categories()->sync($request->input('categories', []));
-        }
+        
+        Alert::success('Berhasil Menambah Lowongan');
 
-        // $lowongan = Lowongan::where('id', $request->id)->first();
-        // $lowongan->delete();
-        // $mitra = Lowonganmitra::where('id', $request['id'])->first();
-        // if ($mitra != null) {
-        //     $cek = Lowonganmitra::where('status_pemasangan', "Terpasang")->first();
-        //     $mitra->status_pemasangan = $cek->status_pemasangan;
-        //     $mitra->update();
-        //     dd($mitra);
-        // } else {
-        //     echo 'gagal';
-        // }
-        // return request('requirements');
-        Alert::success('Berhasil Menambah Lowongan', ' ');
-
+        
         return redirect()->route('admin.jobs.index');
     }
 
@@ -126,19 +88,48 @@ class JobsController extends Controller
         // dd($job);
         $companies = Company::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $locations = Location::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        // $locations = Location::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $categories = Category::all()->pluck('name', 'id');
 
-        $job->load('company', 'location', 'categories');
+        $job->load('company', 'categories');
 
-        return view('admin.jobs.edit', compact('companies', 'locations', 'categories', 'job'));
+        $kotasekarang = Regency::where('id' , $job->regency_id)->first() ;
+
+        $kota = Regency::all();
+        
+        return view('admin.jobs.edit', compact('companies', 'categories', 'job', 'kota', 'kotasekarang'));
     }
 
-    public function update(UpdateJobRequest $request, Job $job)
+    public function update(Request $request, Job $job)
     {
-        $data = $request->all();
-        $data['categories_id'] = $request->categories[0];
+        $companyName      = Company::where('id', $request->company_id)->first('name');
+        $slug_title       = Str::slug($request->get('title'));
+        $slug_companyname = Str::slug($companyName->name);
+        $slug             = $slug_title . '-di-' . $slug_companyname;
+
+        $data = [
+            'title'            => $request->title,
+            'salary'           => $request->salary,
+            'address'          => $request->address,
+            'top_rated'        => $request->top_rated,
+            'company_id'       => $request->company_id,
+            'job_nature'       => $request->job_nature,
+            'pendidikan'       => $request->pendidikan,
+            'umur'             => $request->umur,
+            'gender'           => $request->gender,
+            'lokasikerja'      => $request->lokasikerja,
+            'requirements'     => $request->requirements,
+            'bataslamaran'     => $request->bataslamaran,
+            'email'            => $request->email,
+            'notelp'           => $request->notelp,
+            'website'          => $request->website,
+            'full_description' => $request->full_description,
+            'slug'             => $slug,
+            'categories_id'    => $request->categories[0],
+            'regency_id' => $request-> regency_id,
+            'formulir' => $request->formulir
+        ];
         $job->update($data);
         $job->categories()->sync($request->input('categories', []));
 
@@ -147,9 +138,12 @@ class JobsController extends Controller
 
     public function show(Job $job)
     {
-        $job->load('company', 'location', 'categories');
+        $job->load('company', 'categories');
 
-        return view('admin.jobs.show', compact('job'));
+        $kotasekarang = Regency::where('id', $job->regency_id)->first();
+        
+
+        return view('admin.jobs.show', compact('job','kotasekarang'));
     }
 
     public function destroy(Job $job)

@@ -39,7 +39,9 @@ class Job extends Model
         'full_description',
         'slug',
         'short_description',
-        'categories_id'
+        'categories_id',
+        'regency_id',
+        'formulir'
     ];
 
     public function company()
@@ -47,10 +49,10 @@ class Job extends Model
         return $this->belongsTo(Company::class, 'company_id');
     }
 
-    public function location()
-    {
-        return $this->belongsTo(Location::class, 'location_id');
-    }
+    // public function location()
+    // {
+    //     return $this->belongsTo(Location::class, 'location_id');
+    // }
 
     public function categories()
     {
@@ -65,6 +67,11 @@ class Job extends Model
     public function Riwayat()
     {
         return $this->belongsTo(Riwayat::class, 'id');
+    }
+
+    public function regencies()
+    {
+        return $this->belongsTo(Regency::class, 'regency_id');
     }
 
     public function scopeSearchResults($query)

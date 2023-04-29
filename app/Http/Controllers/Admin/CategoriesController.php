@@ -57,7 +57,7 @@ class CategoriesController extends Controller
            'name'=> 'required' 
         ]);
 
-        $slug = $request->name;
+        $slug = Str::slug($request->get('name'));
         
         $data = ([
             'name' => $request->name,
@@ -66,7 +66,7 @@ class CategoriesController extends Controller
         
         $category->update($data);
 
-        Alert::success('Success', 'Category Berhasil Dihapus!');
+        Alert::success('Success', 'Category Berhasil Diperbarui!');
         return redirect()->route('admin.categories.index');
     }
 

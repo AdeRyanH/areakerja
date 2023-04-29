@@ -33,7 +33,7 @@ class ArtikelController extends Controller
         }
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
         $wishlist         = Wish::where('ip', $ipaddress)->get();
-        $searchLocations  = Location::pluck('name', 'id');
+        // $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
             ->orderBy('jobs_count', 'desc')
@@ -50,10 +50,10 @@ class ArtikelController extends Controller
 
         $article = Article::all();
 
-        $sidebarLocations = Location::withCount('jobs')
-            ->whereHas('jobs')
-            ->orderBy('jobs_count', 'desc')
-            ->get();
+        // $sidebarLocations = Location::withCount('jobs')
+        //     ->whereHas('jobs')
+        //     ->orderBy('jobs_count', 'desc')
+        //     ->get();
 
         $sidebarCategories = Category::withCount('jobs')
             ->whereHas('jobs')
@@ -65,25 +65,25 @@ class ArtikelController extends Controller
 
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all(); 
 
         return view(
-            'artikel.index',
+            'artikel.index' ,
             compact([
                 'title',
-                'searchLocations',
+                // 'searchLocations',
                 'searchCategories',
                 'searchByCategory',
                 'jobs',
                 'sidebarJobs',
-                'sidebarLocations',
+                // 'sidebarLocations',
                 'sidebarCategories',
                 'article',
                 'wishlist',
                 'riwayatlist',
                 'cabang',
                 'cabanghr',
-                'province'
+                'provinsi'
             ])
         );
     }
@@ -92,7 +92,7 @@ class ArtikelController extends Controller
     {
         // dd($slug);
         $ipaddress        = '';
-        $searchLocations  = Location::pluck('name', 'id');
+        // $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
             ->orderBy('jobs_count', 'desc')
@@ -109,10 +109,10 @@ class ArtikelController extends Controller
 
         $art = Article::where('slug', $slug)->first();
         // $tampilkan = Crud::where('slug_judul', $slug)->first();
-        $sidebarLocations = Location::withCount('jobs')
-            ->whereHas('jobs')
-            ->orderBy('jobs_count', 'desc')
-            ->get();
+        // $sidebarLocations = Location::withCount('jobs')
+        //     ->whereHas('jobs')
+        //     ->orderBy('jobs_count', 'desc')
+        //     ->get();
 
         $sidebarCategories = Category::withCount('jobs')
             ->whereHas('jobs')
@@ -124,24 +124,24 @@ class ArtikelController extends Controller
         
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all(); 
 
         return view(
             'artikel.show',
             compact([
                 'title',
-                'searchLocations',
+                // 'searchLocations',
                 'searchCategories',
                 'searchByCategory',
                 'jobs',
                 'sidebarJobs',
-                'sidebarLocations',
+                // 'sidebarLocations',
                 'sidebarCategories',
                 'art',
                 'riwayatlist',
                 'cabang',
                 'cabanghr',
-                'province'
+                'provinsi'
             ])
         );
     }

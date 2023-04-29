@@ -47,7 +47,7 @@
                             Lokasi/Kota
                         </th>
                         <td>
-                            {{ $job->location->name ?? '' }}
+                            {{ $kotasekarang->name }}
                         </td>
                     </tr>
                     <tr>
@@ -158,6 +158,14 @@
                         </th>
                         <td>
                             {{ $job->website }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Link Formulir
+                        </th>
+                        <td>
+                            {{ $job->formulir }}
                         </td>
                     </tr>
                     <tr>

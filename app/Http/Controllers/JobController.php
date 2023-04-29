@@ -10,6 +10,7 @@ use App\Models\Location;
 use App\Models\MainSkill;
 use App\Models\Price;
 use App\Models\province;
+use App\Models\Regency;
 use App\Models\Riwayat;
 use App\Models\Wish;
 use Carbon\Carbon;
@@ -89,7 +90,7 @@ class JobController extends Controller
 
         $job = Job::where('slug', $slug)->first();
         $job->load('company');
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress], ['idJob', '=', $job->id]])->get();
@@ -260,7 +261,7 @@ class JobController extends Controller
         }
         $paket            = Price::where('keterangan', 'biasa')->get();
         $paket2           = Price::where('keterangan', 'mitra')->get();
-        $searchLocations  = Location::pluck('name', 'id');
+        // $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
             ->orderBy('jobs_count', 'desc')
@@ -274,10 +275,10 @@ class JobController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-        $sidebarLocations = Location::withCount('jobs')
-            ->whereHas('jobs')
-            ->orderBy('jobs_count', 'desc')
-            ->get();
+        // $sidebarLocations = Location::withCount('jobs')
+        //     ->whereHas('jobs')
+        //     ->orderBy('jobs_count', 'desc')
+        //     ->get();
 
         $sidebarCategories = Category::withCount('jobs')
             ->whereHas('jobs')
@@ -290,7 +291,7 @@ class JobController extends Controller
         $cabanghr = cabang::get()->last();
         $contact = contact::get();
         $contacthr = contact::get()->last();
-        $province = province::all(); 
+        $provinsi = province::all();
 
         return view(
             'pasang.paket',
@@ -298,19 +299,17 @@ class JobController extends Controller
                 'title',
                 'paket',
                 'paket2',
-                'searchLocations',
                 'searchCategories',
                 'searchByCategory',
                 'jobs',
                 'sidbarJobs',
-                'sidebarLocations',
                 'sidebarCategories',
                 'riwayatlist',
                 'cabang',
                 'cabanghr',
                 'contact',
                 'contacthr',
-                'province'
+                'provinsi'
             ])
         );
     }

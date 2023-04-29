@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\Location;
+use App\Models\Regency;
 use App\Models\Riwayat;
 use App\Models\Wish;
 
@@ -38,11 +39,11 @@ class CompaniesController extends Controller
         // dd($job3);
         $job2 = Job::where('company_id', $job3)->get();
         // dd($job2);
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
-        $sidebarLocations = Location::withCount('jobs')
+        $sidebarLocations = Regency::withCount('jobs')
             ->whereHas('jobs')
             ->orderBy('jobs_count', 'desc')
             ->get();

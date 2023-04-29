@@ -20,7 +20,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Banguntapan',
             'top_rated'        => '1',
             'salary'           => '10k - 20k',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'company_id'       => '2',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -30,7 +30,8 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 20 Tahun',
             'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan, Yogyakarta',
             'slug'             => 'kameramen-di-seven-inc',
-            'categories_id'       => '3'
+            'categories_id'       => '3',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(3);
@@ -43,7 +44,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Banguntapan jogja',
             'top_rated'        => '1',
             'salary'           => '10jt - 20jt',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'company_id'       => '6',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -53,7 +54,8 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 25 Tahun',
             'lokasikerja'      => 'Jalan Bimo No. 20 Sleman, Yogyakarta',
             'slug'             => 'customer-service-di-jw-media-production',
-            'categories_id'       => '4'
+            'categories_id'       => '4',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(4);
@@ -66,7 +68,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Banguntapan jogja',
             'top_rated'        => '0',
             'salary'           => '500k - 700k',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'company_id'       => '1',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -76,7 +78,8 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 26 Tahun',
             'lokasikerja'      => 'Jalan Kawedanan No. 20 Kulon Progo, Yogyakarta',
             'slug'             => 'pramusaji-pelayan-di-rumah-makan-di-areakerja',
-            'categories_id'       => '5'
+            'categories_id'       => '5' ,
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(5);
@@ -89,7 +92,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'DIY',
             'top_rated'        => '1',
             'salary'           => '800k - 1jt',
-            'location_id'      => '1',
+            // 'location_id'      => '1',
             'company_id'       => '6',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -99,7 +102,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 24 Tahun',
             'lokasikerja'      => 'Jalan Affandi No. 20 Depok, Sleman, Yogyakarta',
             'slug'             => 'admin-di-jw-media-production',
-            'categories_id'       => '4'
+            'categories_id'       =>
+            '4',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(4);
@@ -112,7 +117,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Bantul',
             'top_rated'        => '0',
             'salary'           => '800k - 1jt',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'company_id'       => '2',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -122,7 +127,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 20 Tahun',
             'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan Yogyakarta',
             'slug'             => 'content-creator-di-seven-inc',
-            'categories_id'       => '1'
+            'categories_id'       =>
+            '1',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(1);
@@ -135,7 +142,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Sleman',
             'top_rated'        => '1',
             'salary'           => '1 jt - 1,2 jt',
-            'location_id'      => '2',
+            // 'location_id'      => '2',
             'company_id'       => '4',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -145,7 +152,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 24 Tahun',
             'lokasikerja'      => 'Jalan Kenari No. 29 Yogyakarta',
             'slug'             => 'designer-videographer-di-jogja-tailor',
-            'categories_id'       => '3'
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(3);
@@ -158,7 +167,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Bantul',
             'top_rated'        => '0',
             'salary'           => '500k',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'company_id'       => '3',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -168,7 +177,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 20 Tahun',
             'lokasikerja'      => 'Jalan Manunggal No. 20 Yogyakarta',
             'slug'             => 'barista-waiters-cashier-di-kopisoe',
-            'categories_id'       => '5'
+            'categories_id'       =>
+            '5',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(5);
@@ -181,7 +192,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Sleman',
             'top_rated'        => '0',
             'salary'           => '900k',
-            'location_id'      => '2',
+            // 'location_id'      => '2',
             'company_id'       => '2',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -191,7 +202,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 22 Tahun',
             'lokasikerja'      => 'Jalan Laksda. Adi Sucipto No. 89 Yogyakarta',
             'slug'             => 'videographer-di-seven-inc',
-            'categories_id'       => '3'
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(3);
@@ -204,7 +217,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'DIY',
             'top_rated'        => '0',
             'salary'           => '4 - 5 Juta',
-            'location_id'      => '1',
+            // 'location_id'      => '1',
             'company_id'       => '5',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -214,7 +227,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 25 Tahun',
             'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan Yogyakarta',
             'slug'             => 'food-and-beverage-manager-di-the-oxalis-regency-hotel',
-            'categories_id'       => '4'
+            'categories_id'       =>
+            '4',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(4);
@@ -227,7 +242,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Sleman',
             'top_rated'        => '0',
             'salary'           => '2,5 - 4,5 Juta',
-            'location_id'      => '2',
+            // 'location_id'      => '2',
             'company_id'       => '2',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -237,7 +252,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 20 Tahun',
             'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan Yogyakarta',
             'slug'             => 'editor-video-di-seven-inc',
-            'categories_id'       => '3'
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
 
         ]);
         $job->save();
@@ -251,7 +268,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Sleman',
             'top_rated'        => '1',
             'salary'           => '2,5 - 4,5 Juta',
-            'location_id'      => '4',
+            // 'location_id'      => '4',
             'company_id'       => '7',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
@@ -261,7 +278,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 22 Tahun',
             'lokasikerja'      => 'Jalan  Mangkubumi No. 11 Yogyakarta',
             'slug'             => 'tiktok-creator-di-dynamic-space',
-            'categories_id'       => '3'
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(3);
@@ -274,7 +293,7 @@ class JobsTableSeeder extends Seeder
             'address'          => 'Sleman',
             'top_rated'        => '0',
             'salary'           => '2,5 - 4,5 Juta',
-            'location_id'      => '3',
+            // 'location_id'      => '3',
             'email'            => 'fadelirsyad08@gmail.com',
             'notelp'           => '+62895329990656',
             'company_id'       => '1',
@@ -284,7 +303,9 @@ class JobsTableSeeder extends Seeder
             'umur'             => 'Maks 26 Tahun',
             'lokasikerja'      => 'Jalan Melati Sorowajan No. 2 Yogyakarta',
             'slug'             => 'human-resource-development-di-areakerja',
-            'categories_id'       => '3'
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
         ]);
         $job->save();
         $job->categories()->sync(3);

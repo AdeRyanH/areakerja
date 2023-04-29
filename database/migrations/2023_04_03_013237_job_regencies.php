@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvincesTable extends Migration
+class JobRegencies extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateProvincesTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinces', function (Blueprint $table) {
-            $table->id();
-            $table->string('province');
-            $table->timestamps();
+        Schema::table('jobs', function (Blueprint $table) {
+            $table->char('regency_id', 4);
+            $table->foreign('regency_id')
+                ->references('id')
+                ->on('regencies');
         });
     }
 
@@ -27,6 +28,8 @@ class CreateProvincesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provinces');
+        Schema::table('jobs', function (Blueprint $table) {
+            //
+        });
     }
 }

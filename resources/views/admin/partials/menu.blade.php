@@ -116,14 +116,14 @@
                     {{ trans('cruds.company.title') }}
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route("admin.locations.index") }}" class="nav-link {{ request()->is('admin/locations') || request()->is('admin/locations/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-map-marker-alt nav-icon">
 
                     </i>
                     {{ trans('cruds.location.title') }}
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-tags nav-icon">
@@ -161,7 +161,7 @@
                 </a>
             </li>
 
-            <li class="nav-item nav-dropdown ">
+            {{-- <li class="nav-item nav-dropdown ">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-map-marker-alt nav-icon">
 
@@ -186,16 +186,16 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="/admin/cabang" class="nav-link {{ request()->is('admin/cabang') || request()->is('admin/cabang/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-map-marker-alt nav-icon">
 
                     </i>
                     Cabang
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="/admin/contact" class="nav-link {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-user nav-icon">

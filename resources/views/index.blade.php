@@ -88,7 +88,7 @@
                     </h5>
                     <hr>
                     <h5 class="sng-dtl" style="margin-left: 5%;margin-bottom: 5%; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 75%, rgba(0,0,0,0));">
-                        <span class="fa fa-map-marker" aria-hidden="true"></span> {{ $job->location->name }}
+                        <span class="fa fa-map-marker" aria-hidden="true"></span> {{ $job->regencies->name }}
                     </h5>
                 </a>
             </div>
@@ -115,7 +115,7 @@
         </div>
 
         <h3 class="sng-ttl9" style="margin-bottom: 15px; ">Lowongan Terbaru</h3>
-        @foreach ($jobs as $job)
+         @foreach ($jobs as $job)
             {{-- <a href="{{ route('jobs.show', $job->id) }}"> --}}
             <div data-aos="fade-up" class="single-post align-items-center d-flex" style="width: 100%">
                 <div class="row " style="margin: auto;margin-right:20px">
@@ -178,7 +178,7 @@
                         <div class="col-auto">
                             <h5 class="sng-dtl">
                                 <span class="fa fa-map-marker" aria-hidden="true"></span>
-                                {{ $job->location->name }}
+                                {{ $job->regencies->name }} , {{ $job->address }}
                             </h5>
                         </div>
                     </div>

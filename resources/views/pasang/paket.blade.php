@@ -30,7 +30,7 @@
                         </h2>
                         <h4 class="pasang" style="color: #fe7b54;line-height: 2!important;font-weight: 500 ">
                             Platform lowongan kerja no. 1 <br />untuk mendapatkan talenta terbaik bagi
-                            perusahaan anda<i class="fa-brands fa-whatsapp"></i>
+                            perusahaan anda
                         </h4>
 
                     </div>
