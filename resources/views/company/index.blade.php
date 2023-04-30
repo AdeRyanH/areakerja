@@ -39,7 +39,7 @@
                         <!-- Add clearfix for only the required viewport -->
                         <div class="col-6 col-sm-4">
                             <div>
-                                <select class="default-select3" name="location">
+                                <select class="default-select3" name="categories">
                                     <option value="0">All Categories</option>
                                     @foreach($searchCategories as $id=>$searchCategories)
                                     <option value="{{ $id }}">{{ $searchCategories }}</option>

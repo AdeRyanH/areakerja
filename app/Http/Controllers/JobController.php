@@ -289,10 +289,8 @@ class JobController extends Controller
 
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-        $contact = contact::get();
-        $contacthr = contact::get()->last();
+        $contact = contact::first();
         $provinsi = province::all();
-
         return view(
             'pasang.paket',
             compact([
@@ -308,7 +306,6 @@ class JobController extends Controller
                 'cabang',
                 'cabanghr',
                 'contact',
-                'contacthr',
                 'provinsi'
             ])
         );

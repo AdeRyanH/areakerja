@@ -105,6 +105,7 @@
     </div>
     <h3 class="sng-ttl9" style="margin-bottom: 15px; ">Semua Lowongan </h3>
     @foreach ($jobs as $job)
+        <a href="{{ route('jobs.show', $job->slug) }}">
         <div data-aos="fade-up" class="single-post align-items-center d-flex" style="width: 100%">
             <div class="row" style="margin: auto;margin-right:20px">
                 @if ($job->company->gambar)
@@ -125,15 +126,15 @@
                     </div>
 
                 </div>
-                <div class="title d-flex flex-row justify-content-between">
+                <div class="title d-flex flex-row">
                     <div class="titles">
                         <h3 class="sng-ttl2">
-                            <a href="{{ route('jobs.show', $job->slug) }}">{{ $job->title }}</a>
+                            {{ $job->title }}
                         </h3>
                         <div class="row ttl3" style=" overflow: unset; white-space: nowrap;">
                             <div class="col-auto">
                                 <h5 class="sng-dtl">
-                                    <a href="{{ route('compan', $job->company->slug) }}">
+                                    <a href="{{ route('compan', $job->company->slug) }}" style="color: #000">
                                         <span class="fa fa-building-o" aria-hidden="true"></span>
                                         {{ $job->company->name }}
                                     </a>
@@ -173,6 +174,7 @@
                 </div>
             </div>
         </div>
+        </a>
     @endforeach
 </div>
 @endsection
