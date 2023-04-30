@@ -1,6 +1,7 @@
 <?php
 
 use Database\Seeders\ArticleSeeder;
+use Database\Seeders\ContactSeeder;
 use Database\Seeders\IndoRegionSeeder;
 use Database\Seeders\MainSkillSeeder;
 use Database\Seeders\MitraSeeder;
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
             RiwayatPendidikanSeeder::class,
             SertifikasiSeeder::class,
             SkillSeeder::class,
+            ContactSeeder::class,
         ]);
     }
 }
