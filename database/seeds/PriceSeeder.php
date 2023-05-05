@@ -10,7 +10,7 @@ class PriceSeeder extends Seeder
     public function run()
     {
         $price = Price::create([
-            'nama'              => 'Gabung Mitra',
+            'nama'              => 'Gold',
             'deskripsi_singkat' => 'Dapatkan Lebih banyak benefit',
             'deskripsi_full'    => '<p><strong>5 Kali Publikasi </strong>di semua jaringan AreaKerja.com</p>',
             'list'              => [
@@ -26,6 +26,7 @@ class PriceSeeder extends Seeder
             'harga'      => '10000000',
             'warna'      => '#ffa70e',
             'keterangan' => 'mitra',
+            'pesan' => 'Halo Areakerja.com, Saya ingin pasang lowongan dengan paket Gold',
         ]);
         $price->save();
 
@@ -46,6 +47,7 @@ class PriceSeeder extends Seeder
             'harga'      => '5000000',
             'warna'      => '#858990',
             'keterangan' => 'biasa',
+            'pesan' => 'Halo Areakerja.com, Saya ingin pasang lowongan dengan paket Silver',
         ]);
         $price->save();
 
@@ -66,6 +68,7 @@ class PriceSeeder extends Seeder
             'harga'      => '2500000',
             'warna'      => '#605349',
             'keterangan' => 'biasa',
+            'pesan' => 'Halo Areakerja.com, Saya ingin pasang lowongan dengan paket bronze',
         ]);
         $price->save();
     }

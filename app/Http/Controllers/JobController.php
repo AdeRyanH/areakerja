@@ -40,7 +40,7 @@ class JobController extends Controller
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
         $jobs             = Job::with('company')->paginate(0);
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $wishh            = Wish::all();
         $sidbarJobs       = Job::whereTopRated(true)
@@ -259,8 +259,8 @@ class JobController extends Controller
         } else {
             $ipaddress = 'UNKNOWN';
         }
-        $paket            = Price::where('keterangan', 'biasa')->get();
-        $paket2           = Price::where('keterangan', 'mitra')->get();
+        $paket            = Price::get();
+        // $paket            = Price::where('keterangan', 'biasa')->get();
         // $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
@@ -291,12 +291,13 @@ class JobController extends Controller
         $cabanghr = cabang::get()->last();
         $contact = contact::first();
         $provinsi = province::all();
+        // dd($paket);
         return view(
             'pasang.paket',
             compact([
                 'title',
                 'paket',
-                'paket2',
+                // 'paket2',
                 'searchCategories',
                 'searchByCategory',
                 'jobs',

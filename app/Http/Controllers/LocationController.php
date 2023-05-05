@@ -10,6 +10,7 @@ use App\Models\province;
 use App\Models\Regency;
 use App\Models\Riwayat;
 use App\Models\Wish;
+use Carbon\Carbon;
 
 class LocationController extends Controller
 {
@@ -31,7 +32,7 @@ class LocationController extends Controller
         } else {
             $ipaddress = 'UNKNOWN';
         }
-
+        Carbon::setLocale('id');
         $location         = Regency::where('name', $name)->first();
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();

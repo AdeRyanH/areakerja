@@ -18,9 +18,6 @@
                 <h1 style="color: #fe7b54; margin-bottom:5px; text-shadow: 2px 2px 3px #353535b0;">
                     Tempat Mencari Kerja
                 </h1>
-                <h6 style="color: #fe7b54; text-shadow: 1px 1px 2px #353535b0;">
-                    Temukan loker Jogja terbaru bulan Juni 2021 dengan mudah.
-                </h6>
             </div>
         </div>
     </div>
@@ -76,7 +73,7 @@
         <div data-aos="fade-up" class="single-post align-items-center d-flex" style="width: 100%">
             <div class="row" style="margin: auto;margin-right:20px">
                 @if($job->company->gambar)
-                <img class="thumb2" src="{{ url('img/companylogo') }}/{{ $job->company->gambar }}">
+                <img class="thumb2" src="{{ $job->company->gambar }}">
                 @endif
             </div>
 
@@ -84,7 +81,7 @@
                 <div class="title d-flex flex-row justify-content-between">
                     <div class="titles">
                         <h3 class="sng-ttl" style="color: #7e7e7e">Dibutuhkan</h3>
-                        <h3 class="sng-ttl2">{{ $job->title }}</h3>
+                        <h4 class="sng-ttl2">{{ $job->title }}</h4>
                         <div class="row ttl3" style=" overflow: unset; white-space: nowrap;">
                             <div class="col-auto">
                                 <h5 class="sng-dtl">
@@ -120,7 +117,7 @@
                     <div class="col-auto">
                         <h5 class="sng-dtl">
                             <span class="fa fa-map-marker" aria-hidden="true"></span>
-                            {{ $job->address }}
+                            {{ $job->regencies->name }} , {{ $job->address }}
                         </h5>
                     </div>
                 </div>

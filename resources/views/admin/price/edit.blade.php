@@ -94,7 +94,18 @@
                 @endif
                 <p class="helper-block">
                 </p>
-            </>
+            </div>
+            <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
+                <label for="pesan">Pesan*</label>
+                <input type="text" id="pesan" name="pesan" class="form-control" value="{{ old('pesan', isset($price) ? $price->pesan : '') }}" required>
+                @if($errors->has('pesan'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('pesan') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                </p>
+            </div>
 
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

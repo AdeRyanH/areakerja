@@ -28,7 +28,7 @@
                     </h2>
                     <h4 class="pasang" style="color: #fe7b54;line-height: 2!important;font-weight: 500 ">
                         Platform lowongan kerja no. 1 <br />untuk mendapatkan talenta terbaik bagi
-                        perusahaan anda<i class="fa-brands fa-whatsapp"></i>
+                        perusahaan anda
                     </h4>
 
 
@@ -178,7 +178,7 @@
     </div>
     <div class="row mb-3 justify-content-around text-center mt-5">
         
-    @foreach ($paket2 as $pak)
+    {{-- @foreach ($paket2 as $pak)
     <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
         <a href="" data-bs-toggle="modal" data-bs-target="#pop{{ $pak->id }}">
             <div class="card mb-4 form-wrap-main2" style="border-radius: 25px; border:5px solid {{ $pak->warna }} ">
@@ -232,7 +232,7 @@
             </div>
         </div>
     </div>
-    @endforeach
+    @endforeach --}}
 
     @foreach ($paket as $pak)
     <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
@@ -277,7 +277,7 @@
                 <div class="modal-body">
                     <div class="" style="margin-bottom: 30px"></div>
                     <div class="card" style="border: none;">
-                        <a href="https://wa.me/{{ $contact->contact }}?text=Halo%20Areakerja.com,%20Saya%20ingin%20pasang%20lowongan%20dengan%20paket%20{{$pak->nama}}" target="_blank" rel="nofollow" data-wpel-link="external">
+                        <a href="https://wa.me/{{ $contact->contact }}?text={{$pak->pesan}}" target="_blank" rel="nofollow" data-wpel-link="external">
                             <div class="card-body">
                                 <img class="img-fluid" src="{{asset('img/icons/whatsapp.png')}}">
                                 <h4 class="mb-2">Via Whatsapp</h4>

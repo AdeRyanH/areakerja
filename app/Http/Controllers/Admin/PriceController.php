@@ -8,6 +8,7 @@ use App\Http\Requests\StorePriceRequest;
 use App\Http\Requests\UpdatePriceRequest;
 use App\Models\Job;
 use App\Models\Price;
+use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\Response;
 
 class PriceController extends Controller
@@ -47,6 +48,8 @@ class PriceController extends Controller
     public function update(UpdatePriceRequest $request, Price $price)
     {
         $price->update($request->all());
+
+        Alert::success('Success', 'Paket berhasil Di Perbarui!');
 
         return redirect()->route('admin.price.index');
     }

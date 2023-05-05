@@ -381,10 +381,11 @@ class HomeController extends Controller
 
         $cabang = cabang::get();
         $cabanghr = cabang::get()->last();
-
+        $provinceshow = province::where('id',$id)->first();
         $province = province::all();
 
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr', 'province']));
+        // dd($provinceshow);
+        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr', 'province','provinceshow']));
     }
 
 

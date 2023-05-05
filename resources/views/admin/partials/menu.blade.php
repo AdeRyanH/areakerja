@@ -132,18 +132,14 @@
                     {{ trans('cruds.category.title') }}
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route("admin.lowongan.index") }}" class="nav-link {{ request()->is('admin/lowongan') || request()->is('admin/lowongan/*') ? 'active' : '' }}">
                     <i class="fa fa-address-book nav-icon">
 
                     </i>
                     Lowongan
                 </a>
-            </li>
-
-
-
-
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route("admin.article.index") }}" class="nav-link {{ request()->is('admin/article') || request()->is('admin/article/*') ? 'active' : '' }}">
                     <i class="fa fa-book nav-icon">

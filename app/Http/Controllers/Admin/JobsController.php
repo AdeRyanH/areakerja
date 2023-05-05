@@ -77,9 +77,7 @@ class JobsController extends Controller
             $job = Job::create($data);
             $job->categories()->sync($request->input('categories', []));
         
-        Alert::success('Berhasil Menambah Lowongan');
-
-        
+        Alert::success('Success','Berhasil Menambah Lowongan!');
         return redirect()->route('admin.jobs.index');
     }
 
@@ -133,6 +131,7 @@ class JobsController extends Controller
         $job->update($data);
         $job->categories()->sync($request->input('categories', []));
 
+        Alert::success('Success', 'Berhasil Memperbarui Lowongan!');
         return redirect()->route('admin.jobs.index');
     }
 

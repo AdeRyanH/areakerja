@@ -68,6 +68,14 @@
                             {{ $price->warna ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            Pesan
+                        </th>
+                        <td>
+                            {{ $price->pesan ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

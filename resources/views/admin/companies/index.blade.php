@@ -62,7 +62,7 @@
                             </td>
                             <td style="width: 150px; vertical-align: middle; text-align: center;">
                                 @if($company->gambar)
-                                    <img src="{{ url('img/companylogo') }}/{{ $company->gambar }}" style="width: 100px; height: 70px;">
+                                    <img src="{{ $company->gambar }}" style="width: 100px; height: 70px;">
                                 @endif
                             </td>
                             <td align="center">

@@ -7,8 +7,10 @@ use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
 use App\Models\province;
+use App\Models\Regency;
 use App\Models\Riwayat;
 use App\Models\Wish;
+use Carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -32,11 +34,12 @@ class CategoryController extends Controller
             $ipaddress = 'UNKNOWN';
         }
 
+        Carbon::setLocale('id');
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
         $category         = Category::where('slug', $slug)->first();
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $jobs             = Job::with('company')
             ->whereHas('categories', static function ($query) use ($category) {

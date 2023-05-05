@@ -79,7 +79,7 @@
                 <div class="col-4 text-right" style="width: 100px;height: 100px;">
                     <a href="{{ route('compan', $job->company->slug) }}">
                         <img style="width: 25px;height: 25px;margin-bottom: 45%;margin-left: 45%" src="{{ url('img/link.png') }}" class="position-absolute">
-                        <img class="gg5" src="{{ url('img/companylogo') }}/{{ $job->company->gambar }}" style="margin: auto;margin-top: 3%;margin-left: 5% ">
+                        <img class="gg5" src="{{ $job->company->gambar }}" style="margin: auto;margin-top: 3%;margin-left: 5% ">
                     </a>
                 </div>
             </div>
@@ -277,11 +277,14 @@
                         <h4 class="gg" style="font-weight: normal"><span class="fa fa-paper-plane-o"></span><span style="display:inline-block; width: 10px;"></span>Lamar</h4>
                         <div class="row justify-content-center popuptext" id="myPopup2" style="padding-right: 0px;margin-right: 0px">
                             <ul class="row justify-content-center">
+                                @if ($job->formulir)
                                 <li style="margin-bottom: 5%; margin-top: 5%">
                                     <a role="button" class="btn form-pasang4" href="{{ $job->formulir }}">
                                         <h6 style="font-weight: normal"><span class="fa fa-folder-open-o"></span><span style="display:inline-block; width: 5px;"></span>Formulir</h6>
                                     </a>
                                 </li>
+                                @endif
+                                
                                 <li style="padding-left: 10px;margin-bottom: 5%; margin-top: 5%">
                                     <a role="button" class="btn form-pasang4" href="https://wa.me/{{ $job->notelp }}?text=Halo {{ $job->company->name }}, Saya *..NAMA..* mendapatkan informasi lowongan kerja dari Areakerja.com. Saya berminat untuk melamar kerja sebagai {{ $job->title }}">
                                         <h6 style="font-weight: normal"><span class="fa fa-whatsapp"></span><span style="display:inline-block; width: 5px;"></span>Whatsapp</h6>
