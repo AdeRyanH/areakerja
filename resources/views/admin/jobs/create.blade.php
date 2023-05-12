@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.job.title_singular') }}
+        <b>Create Job</b>
     </div>
 
     <div class="card-body">

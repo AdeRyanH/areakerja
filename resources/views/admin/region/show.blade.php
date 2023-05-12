@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row align-items-center justify-content-between d-flex" style="margin-left: 2px; margin-right:2px">
-                <b>Contact List</b>
+                <b>Location List</b>
             </div>
         </div>
 
@@ -16,30 +16,19 @@
                                 No
                             </th>
                             <th>
-                                Name
+                                Province
                             </th>
                             <th>
-                                Contact
-                            </th>
-                            <th style="width: 200px">
-                                Action
+                                Regency
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($contact as $contact)
+                        @foreach ($regencies as $regencies)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $contact->name }}</td>
-                            <td>{{ $contact->contact }}</td>
-                            <td>
-                                <a style="width: 60px" class="btn btn-xs btn-info" href="/admin/contact/edit/{{ $contact->id }}">
-                                    Edit
-                                </a>
-                                {{-- <a style="width: 60px" class="btn btn-xs btn-danger" href="/admin/contact/destroy/{{ $contact->id }}">
-                                    Hapus
-                                </a> --}}
-                            </td>
+                            <td>{{ $regencies->province->name }}</td>
+                            <td>{{ $regencies->name }}</td>
                         </tr>
                         @endforeach
                     </tbody>

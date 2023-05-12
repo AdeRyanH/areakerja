@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyLocationRequest;
 use App\Http\Requests\StoreLocationRequest;
 use App\Http\Requests\UpdateLocationRequest;
 use App\Models\Location;
+use App\Models\Regency;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,9 +15,12 @@ class LocationsController extends Controller
 {
     public function index()
     {
-        $locations = Location::all();
+        $regencies = Regency::all();
+        return view('admin.region.show', compact('regencies'));
 
-        return view('admin.locations.index', compact('locations'));
+        // $locations = Location::all();
+
+        // return view('admin.locations.index', compact('locations'));
     }
 
     public function create()

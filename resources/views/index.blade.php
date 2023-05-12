@@ -121,7 +121,7 @@
                     @endif
                 </div>
 
-                <div class="details " style="width: 100%; margin-top: 14px; overflow: unset; white-space: nowrap;">
+                <div class="details " style="width: 100%; margin-top: 14px; overflow: unset;">
                     <div class="row no-gutters" style="width: 100%;margin-left: -0.5%">
                         <div class="col-6 ">
                             <h3 class="sng-ttl" style="color: #7e7e7e">Dibutuhkan</h3>
@@ -175,7 +175,7 @@
                         <div class="col-auto">
                             <h5 class="sng-dtl">
                                 <span class="fa fa-map-marker" aria-hidden="true"></span>
-                                {{ $job->regencies->name }} , {{ $job->address }}
+                                {{ $job->regencies->name }}
                             </h5>
                         </div>
                     </div>

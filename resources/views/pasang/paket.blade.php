@@ -14,7 +14,29 @@
 
 @section('home')
 <section class="relative">
-    <img src="{{ url('img/chat_me.png') }}" onclick="location.href='https://wa.me/6287719999132'" id="myBtn2" title="Go to top" class="myBtn2">
+    <style>
+        @media (min-width: 992px){
+            .imgdis{
+                display:unset;
+                width: 15%;
+            }
+        }
+        
+        @media (min-width: 481px)  and (max-width: 992px){
+            .imgdis{
+                display:unset;
+                width: 25%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .imgdis{
+                display:unset;
+                width: 35%;
+            }
+        }
+    </style>
+    <img src="{{ url('img/chat_me.png') }}" onclick="location.href='https://wa.me/{{ $contact->contact }}'" class=" imgdis myBtn2">
     <div class="banner-area3">
         <div class="row align-items-center justify-content-center" style="margin-right: 15px; margin-left: 15px">
             <div class="banner-content col-lg-12">
@@ -51,7 +73,7 @@
         <div class="sl 2"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/google.png" /></div>
         <div class="sl 3"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/instagram.png" /></div>
         <div class="sl 4"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/facebook.png" /></div>
-        <div class="sl 5"><img alt="" class="img-social" src="https://www.freeiconspng.com/uploads/twitter-icon-download-18.png" /></div>
+        <div class="sl 5"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/twitter.png" /></div>
         <div class="sl 6"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/linkedin.png" /></div>
         <div class="sl 7"><img alt="" class="img-social" src="https://www.lokerjogja.id/wp-content/themes/lokerjogjav1/img/pasang/telegram.png" /></div>
     </div>
@@ -177,62 +199,6 @@
         </div>
     </div>
     <div class="row mb-3 justify-content-around text-center mt-5">
-        
-    {{-- @foreach ($paket2 as $pak)
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
-        <a href="" data-bs-toggle="modal" data-bs-target="#pop{{ $pak->id }}">
-            <div class="card mb-4 form-wrap-main2" style="border-radius: 25px; border:5px solid {{ $pak->warna }} ">
-                <div class="card-header pt-3 pb-4" style="border-radius:  25px 25px 200px 200px/25px 25px 45px 45px; height: auto;background-color: {{ $pak->warna }}">
-                    <h1 class="my-0 fw-normal mb-1 text-white text-bold">{{ $pak->nama }}</h1>
-                    <h4 class="my-0 fw-normal text-white">{{ $pak->deskripsi_singkat }}</h4>
-                </div>
-                <div class="card-body ">
-                    <h4 style="font-weight: normal;display: block; line-height: 1.6 !important; ">
-                        {!! $pak->deskripsi_full !!}</h4>
-                    <div class="col-11 col-sm-10 mx-auto no-padding">
-                        <ul class="text-left mb-4">
-                            @foreach ($pak->list as $fitur)
-                            <h5 class="mb-3" style="font-weight: normal;">{!! $fitur !!}
-                            </h5>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <hr />
-                </div>
-                <div class="card-footer pt-4 pb-3" style="border-radius:  200px 200px 25px 25px/45px 45px 25px 25px; height: auto;background-color: {{ $pak->warna }}">
-                    <h3 class="my-0 fw-normal mb-1 text-white">Rp
-                        {{ number_format($pak->harga, 0, '.', '.') }}
-                    </h3>
-                    <p class="my-0 fw-normal text-white">Gabung Mitra Sekarang</h6>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <!-- PopUp -->
-    <div class="modal fade" id="pop{{ $pak->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: {{ $pak->warna }}">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white">{{ $pak->nama }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="" style="margin-bottom: 30px"></div>
-                    <div class="card" style="border: none;">
-                        <a href="https://wa.me/{{ $contact->contact }}?text=Halo%20Areakerja.com,%20Saya%20ingin%20pasang%20lowongan%20dengan%20paket%20{{$pak->nama}}" target="_blank" rel="nofollow" data-wpel-link="external">
-                            <div class="card-body">
-                                <img class="img-fluid" src="{{asset('img/icons/whatsapp.png')}}">
-                                <h4 class="mb-2">Via Whatsapp</h4>
-                                <p style="color: black; font-size: 16px; font-weight: 400;">Tim kami akan memberikan bantuan pemasangan melalui aplikasi Whatsapp</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach --}}
 
     @foreach ($paket as $pak)
     <div class="col-12 col-sm-6 col-md-6 col-lg-4 px-4 ">
@@ -272,7 +238,10 @@
             <div class="modal-content">
                 <div class="modal-header" style="background-color: {{ $pak->warna }}">
                     <h1 class="modal-title fs-5" id="exampleModalLabel" style="color : white">{{ $pak->nama }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">adsad</button> --}}
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 40px ;color: #ffffff">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="" style="margin-bottom: 30px"></div>

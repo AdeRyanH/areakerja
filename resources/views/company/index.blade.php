@@ -103,7 +103,7 @@
                     <div class="col-auto">
                         <h5 class="sng-dtl">
                             <span class="fa fa-map-marker" aria-hidden="true"></span>
-                          {{ $job1->regencies->name }} , {{ $job1->address }}
+                          {{ $job1->regencies->name }}
                         </h5>
                     </div>
                 </div>

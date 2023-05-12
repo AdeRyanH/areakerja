@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">
         <div class="row align-items-center justify-content-between d-flex" style="margin-left: 2px; margin-right:2px">
-            Price List
+            <b>Price List</b>
             {{-- <a class="btn btn-success ml-2" href="{{ route("admin.price.create") }}">
                 <i class="fa fa-plus mr-2" aria-hidden="true"></i>
                 Add Price

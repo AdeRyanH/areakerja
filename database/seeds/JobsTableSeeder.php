@@ -209,30 +209,30 @@ class JobsTableSeeder extends Seeder
         $job->save();
         $job->categories()->sync(3);
 
-        // $job = Job::create([
-        //     'title'            => 'Food and Beverage Manager',
-        //     'full_description' => ['Membantu team untuk berproduksi sesuai system perusahaan', 'Memberikan pelatihan marketing'],
-        //     'requirements'     => ['Selalu mempunyai ide untuk penjualan', 'Berpengalaman', 'Pria/wanita max 30th'],
-        //     'job_nature'       => 'Full-time',
-        //     'address'          => 'DIY',
-        //     'top_rated'        => '0',
-        //     'salary'           => '4 - 5 Juta',
-        //     // 'location_id'      => '1',
-        //     'company_id'       => '5',
-        //     'email'            => 'fadelirsyad08@gmail.com',
-        //     'notelp'           => '+62895329990656',
-        //     'pendidikan'       => 'SMA/S1/S2',
-        //     'gender'           => 'Pria/Wanita',
-        //     'bataslamaran'     => '25 Juni 2021',
-        //     'umur'             => 'Maks 25 Tahun',
-        //     'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan Yogyakarta',
-        //     'slug'             => 'food-and-beverage-manager-di-the-oxalis-regency-hotel',
-        //     'categories_id'       =>
-        //     '4',
-        //     'regency_id' => '3471'
-        // ]);
-        // $job->save();
-        // $job->categories()->sync(4);
+        $job = Job::create([
+            'title'            => 'Food and Beverage Manager',
+            'full_description' => ['Membantu team untuk berproduksi sesuai system perusahaan', 'Memberikan pelatihan marketing'],
+            'requirements'     => ['Selalu mempunyai ide untuk penjualan', 'Berpengalaman', 'Pria/wanita max 30th'],
+            'job_nature'       => 'Full-time',
+            'address'          => 'DIY',
+            'top_rated'        => '0',
+            'salary'           => '4 - 5 Juta',
+            // 'location_id'      => '1',
+            'company_id'       => '5',
+            'email'            => 'fadelirsyad08@gmail.com',
+            'notelp'           => '+62895329990656',
+            'pendidikan'       => 'SMA/S1/S2',
+            'gender'           => 'Pria/Wanita',
+            'bataslamaran'     => '25 Juni 2021',
+            'umur'             => 'Maks 25 Tahun',
+            'lokasikerja'      => 'Jalan Kanoman No. 20 Banguntapan Yogyakarta',
+            'slug'             => 'food-and-beverage-manager-di-the-oxalis-regency-hotel',
+            'categories_id'       =>
+            '4',
+            'regency_id' => '3471'
+        ]);
+        $job->save();
+        $job->categories()->sync(4);
 
         $job = Job::create([
             'title'            => 'Editor Video',
@@ -285,29 +285,29 @@ class JobsTableSeeder extends Seeder
         $job->save();
         $job->categories()->sync(3);
 
-        // $job = Job::create([
-        //     'title'            => 'Human Resource Development',
-        //     'full_description' => ['Melakukan Manpower plan, pengawasan SDM, pengembangan kualitas & karir, serta mengurusi adminstrasi SDM.', 'Bertanggung jawab penuh atas rekrutmen mulai dari mencari pelamar sampai wawancara, dan juga pengambilan keputusannya.', 'Menindak dan memberikan peringatan kepada SDM yang melanggar peraturan atau tindakan tidak disiplin.'],
-        //     'requirements'     => ['Pengalaman Kerja Minimal lth di Bidang HRD', 'Familiar Dengan Personnel Administration, Talent Development Program, Career Planing, Job Evaluation & Work Load Analysis', 'Berkepribadian Baik, Memiliki Skill Komunikasi, Pekerja Keras & Siap Bekerja di Bawah Tekanan'],
-        //     'job_nature'       => 'Full-time',
-        //     'address'          => 'Sleman',
-        //     'top_rated'        => '0',
-        //     'salary'           => '2,5 - 4,5 Juta',
-        //     // 'location_id'      => '3',
-        //     'email'            => 'fadelirsyad08@gmail.com',
-        //     'notelp'           => '+62895329990656',
-        //     'company_id'       => '1',
-        //     'pendidikan'       => 'S1/S2',
-        //     'gender'           => 'Pria/Wanita',
-        //     'bataslamaran'     => '20 Juli 2021',
-        //     'umur'             => 'Maks 26 Tahun',
-        //     'lokasikerja'      => 'Jalan Melati Sorowajan No. 2 Yogyakarta',
-        //     'slug'             => 'human-resource-development-di-areakerja',
-        //     'categories_id'       =>
-        //     '3',
-        //     'regency_id' => '3471'
-        // ]);
-        // $job->save();
-        // $job->categories()->sync(3);
+        $job = Job::create([
+            'title'            => 'Human Resource Development',
+            'full_description' => ['Melakukan Manpower plan, pengawasan SDM, pengembangan kualitas & karir, serta mengurusi adminstrasi SDM.', 'Bertanggung jawab penuh atas rekrutmen mulai dari mencari pelamar sampai wawancara, dan juga pengambilan keputusannya.', 'Menindak dan memberikan peringatan kepada SDM yang melanggar peraturan atau tindakan tidak disiplin.'],
+            'requirements'     => ['Pengalaman Kerja Minimal lth di Bidang HRD', 'Familiar Dengan Personnel Administration, Talent Development Program, Career Planing, Job Evaluation & Work Load Analysis', 'Berkepribadian Baik, Memiliki Skill Komunikasi, Pekerja Keras & Siap Bekerja di Bawah Tekanan'],
+            'job_nature'       => 'Full-time',
+            'address'          => 'Sleman',
+            'top_rated'        => '0',
+            'salary'           => '2,5 - 4,5 Juta',
+            // 'location_id'      => '3',
+            'email'            => 'fadelirsyad08@gmail.com',
+            'notelp'           => '+62895329990656',
+            'company_id'       => '1',
+            'pendidikan'       => 'S1/S2',
+            'gender'           => 'Pria/Wanita',
+            'bataslamaran'     => '20 Juli 2021',
+            'umur'             => 'Maks 26 Tahun',
+            'lokasikerja'      => 'Jalan Melati Sorowajan No. 2 Yogyakarta',
+            'slug'             => 'human-resource-development-di-areakerja',
+            'categories_id'       =>
+            '3',
+            'regency_id' => '3471'
+        ]);
+        $job->save();
+        $job->categories()->sync(3);
     }
 }

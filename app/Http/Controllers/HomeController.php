@@ -387,7 +387,4 @@ class HomeController extends Controller
         // dd($provinceshow);
         return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr', 'province','provinceshow']));
     }
-
-
-    
 }

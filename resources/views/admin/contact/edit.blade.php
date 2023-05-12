@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Update Contact
+        <b>Update Contact</b>
     </div>
     <div class="card-body">
         <form action="/admin/contact/update/{{ $contact->id }}" method="POST" enctype="multipart/form-data">
