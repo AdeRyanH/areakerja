@@ -49,8 +49,6 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Lowongan Kerja di Yogyakarta';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
 
         return view(
@@ -62,8 +60,6 @@ class JobController extends Controller
                 'searchLocations',
                 'searchCategories',
                 'sidbarJobs', 'riwayatlist', 'wishlist', 'ipaddress', 'wishh',
-                'cabang',
-                'cabanghr',
                 'province'
             ])
         );
@@ -98,16 +94,11 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
 
         $title = 'Lowongan Kerja ' . $job->title . ' di ' . $job->company->name;
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
-        // Alert::success('Sukses Membuka');
 
         return view(
             'jobs.show',
             compact(['title', 'job', 'riwayatlist', 'searchLocations', 'searchCategories', 'wishlist', 'ipaddress', 'wishh',
-                'cabang',
-                'cabanghr',
                 'province'])
         );
     }
@@ -287,8 +278,6 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
         $title       = 'Pasang Lowongan Kerja';
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $contact = contact::first();
         $provinsi = province::all();
         // dd($paket);
@@ -304,8 +293,6 @@ class JobController extends Controller
                 'sidbarJobs',
                 'sidebarCategories',
                 'riwayatlist',
-                'cabang',
-                'cabanghr',
                 'contact',
                 'provinsi'
             ])
@@ -368,8 +355,6 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Rekomendasi Lowongan Kerja';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
 
         return view(
@@ -380,7 +365,7 @@ class JobController extends Controller
                 'banner',
                 'searchLocations',
                 'searchCategories',
-                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','cabang','cabanghr','province'
+                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','province'
             ])
         );
     }

@@ -48,10 +48,8 @@ class LocationController extends Controller
 
         $title = 'Lowongan Kerja daerah' . ' ' . $location->name;
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $provinsi = Province::all(); 
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','cabang','cabanghr','provinsi']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','provinsi']));
     }
 }

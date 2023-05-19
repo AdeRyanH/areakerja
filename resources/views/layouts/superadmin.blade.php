@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="content">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Dashboard - Admin</title>
+    <title>Dashboard - Superadmin</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
@@ -48,7 +48,6 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
-    @admin
         <header class="app-header navbar" style="background-color: #272e41">
             <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
                 <span class="navbar-toggler-icon"></span>
@@ -78,7 +77,7 @@
         </header>
 
         <div id="admin">
-            @include('admin.partials.menu')
+            @include('superadmin.sidebar')
             <main class="main">
 
 
@@ -87,6 +86,13 @@
                         <div class="row mb-2">
                             <div class="col-lg-12">
                                 <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                            </div>
+                        </div>
+                    @endif
+                    @if (session('old_password'))
+                        <div class="row mb-2">
+                            <div class="col-lg-12">
+                                <div class="alert alert-danger" role="alert">{{ session('old_password') }}</div>
                             </div>
                         </div>
                     @endif
@@ -109,8 +115,6 @@
                 {{ csrf_field() }}
             </form>
         </div>
-    @else
-    @endadmin
 
 
 
@@ -518,18 +522,6 @@
                 text.style.display = "none";
             }
         });
-        // text.style.display = "none";
-        // document.getElementById('name').value = option.value;
-        // function mitra(){
-        //     alert( option.value );
-        //     // if (option.value == "3") {
-        //     //     text.style.display = "block";
-        //     // } else {
-        //     //     text.style.display = "none";
-        //     // }
-        // }
-
-        // mitra();
     </script>
 
     @include('sweetalert::alert')

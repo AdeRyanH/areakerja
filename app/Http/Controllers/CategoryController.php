@@ -53,10 +53,8 @@ class CategoryController extends Controller
 
         $banner = 'Category: ' . $category->name;
         $title  = 'Kategori Pekerjaan' . ' ' . $category->name;
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $provinsi = province::all();
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs','cabang','cabanghr','provinsi']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchLocations', 'searchCategories', 'sidbarJobs','provinsi']));
     }
 }

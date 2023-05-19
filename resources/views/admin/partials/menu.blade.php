@@ -1,6 +1,5 @@
 <div class="sidebar" style="overflow: hidden">
     <nav class="sidebar-nav" >
-
         <ul class="nav">
             <li class="nav-item">
                 <a href="{{ route("admin.home") }}" class="nav-link">
@@ -156,42 +155,6 @@
                     Price
                 </a>
             </li>
-
-            {{-- <li class="nav-item nav-dropdown ">
-                <a class="nav-link  nav-dropdown-toggle" href="#">
-                    <i class="fa-fw fas fa-map-marker-alt nav-icon">
-
-                    </i>
-                    Lokasi 
-                </a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a href="/admin/provinces" class="nav-link {{ request()->is('admin/province') || request()->is('admin/province/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-map-marker-alt nav-icon">
-                            </i>
-                            Provinsi
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a href="/admin/cities" class="nav-link {{ request()->is('admin/cities') || request()->is('admin/cities/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-map-marker-alt nav-icon">
-                            </i>
-                            Kota
-                        </a>
-                    </li>
-                </ul>
-            </li> --}}
-
-            {{-- <li class="nav-item">
-                <a href="/admin/cabang" class="nav-link {{ request()->is('admin/cabang') || request()->is('admin/cabang/*') ? 'active' : '' }}">
-                    <i class="fa-fw fas fa-map-marker-alt nav-icon">
-
-                    </i>
-                    Cabang
-                </a>
-            </li> --}}
             <li class="nav-item">
                 <a href="/admin/contact" class="nav-link {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}">
                     <i class="fa-fw fas fa-user nav-icon">
@@ -203,14 +166,11 @@
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
-
                     </i>
                     {{ trans('global.logout') }}
                 </a>
             </li>
         </ul>
-
     </nav>
-    {{-- <button class="sidebar-minimizer brand-minimizer" type="button"></button> --}}
 </div>
 

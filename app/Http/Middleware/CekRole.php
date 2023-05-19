@@ -19,6 +19,7 @@ class CekRole
             'user'     => [1, 2],
             'mitra'    => [3],
             'kandidat' => [4],
+            'superadmin' => [5],
         ];
 
         if (Auth::check() && in_array(Auth::user()->role_user()->first()->role_id, $roles[$role], true)) {
