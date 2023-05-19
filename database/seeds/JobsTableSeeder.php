@@ -61,7 +61,7 @@ class JobsTableSeeder extends Seeder
         $job->categories()->sync(4);
 
         $job = Job::create([
-            'title'            => 'Pramusaji / Pelayan di Rumah Makan',
+            'title'            => 'Pramusaji',
             'full_description' => ['Melayani pelanggan dengan ramah', 'Membantu chef di dapur', 'Membantu menyiapkan pesanan pelanggan'],
             'requirements'     => ['Jujur, amanah, tanggung jawab, cekatan, Teliti dan sabar', 'Mempunyai pengalaman di rumah makan minimal 1 tahun', 'Mengerti administrasi'],
             'job_nature'       => 'Full-time',

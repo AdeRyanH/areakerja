@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.company.title') }}
+        <b>Show Company</b>
     </div>
 
     <div class="card-body">
@@ -48,8 +48,16 @@
                         </th>
                         <td>
                             @if($company->gambar)
-                                    <img src="{{ url('img/companylogo') }}/{{ $company->gambar }}" style="width: 400px; height: 280px;">
+                                    <img src="{{ $company->gambar }}" style="width: 400px; height: 280px;">
                             @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sumber Logo
+                        </th>
+                        <td>
+                            {{ $company->gambar }}
                         </td>
                     </tr>
                 </tbody>

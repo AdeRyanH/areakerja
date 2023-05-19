@@ -11,7 +11,7 @@ class HomeController
         $jobs       = DB::table('jobs')->count();
         $companies  = DB::table('companies')->count();
         $categories = DB::table('categories')->count();
-        $locations  = DB::table('locations')->count();
+        $locations  = DB::table('regencies')->count();
 
         return view('admin.home', compact(['jobs', 'companies', 'categories', 'locations']));
     }

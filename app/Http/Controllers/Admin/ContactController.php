@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ContactController extends Controller
 {
@@ -86,6 +87,7 @@ class ContactController extends Controller
         ]);
 
         $contact->update($data);
+        Alert::success('Success', 'Berhasil Memperbarui Contact!');
         return redirect('/admin/contact')->withsucces('Contact Telah Diubah!');
     }
 

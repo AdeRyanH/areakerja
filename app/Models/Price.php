@@ -26,6 +26,7 @@ class Price extends Model
         'harga',
         'warna',
         'keterangan',
+        'pesan',
         'created_at',
         'updated_at',
         'deleted_at',

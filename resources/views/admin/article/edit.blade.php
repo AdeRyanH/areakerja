@@ -4,8 +4,7 @@
 <div class="card">
     <div class="card-header">
         <div class="row align-items-center justify-content-between d-flex" style="margin-left: 2px; margin-right:2px">
-            {{ trans('cruds.category.title_singular') }} {{ trans('global.list') }}
-
+            <b>Article Edit</b>
         </div>
     </div>
 

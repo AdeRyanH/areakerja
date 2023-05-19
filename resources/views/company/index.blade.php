@@ -73,7 +73,7 @@
 
         </div>
         <div class="col-4 text-right " style="width: 100%;">
-            <img class="gg6" src="{{ url('img/companylogo') }}/{{ $job[0]->gambar }}" style="margin: auto; ">
+            <img class="gg6" src="{{ $job[0]->gambar }}" style="margin: auto; ">
         </div>
     </div>
     @foreach($job2 as $job1)
@@ -103,7 +103,7 @@
                     <div class="col-auto">
                         <h5 class="sng-dtl">
                             <span class="fa fa-map-marker" aria-hidden="true"></span>
-                            {{ $job1->address }}
+                          {{ $job1->regencies->name }}
                         </h5>
                     </div>
                 </div>

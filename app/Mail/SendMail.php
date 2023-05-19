@@ -19,8 +19,7 @@ class SendMail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Kontak')
-            ->from(config('mail.from.address'))
+            ->subject('Saran')
             ->view('email')
             ->with([
                 'nama'  => $this->user['nama'],

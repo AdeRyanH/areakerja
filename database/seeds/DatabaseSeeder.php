@@ -27,18 +27,9 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             CategoriesTableSeeder::class,
-            LocationsTableSeeder::class,
             CompaniesTableSeeder::class,
             JobsTableSeeder::class,
             PriceSeeder::class,
-            MitraSeeder::class,
-            MainSkillSeeder::class,
-            KandidatSeeder::class,
-            OrganisasiSeeder::class,
-            PengalamanSeeder::class,
-            RiwayatPendidikanSeeder::class,
-            SertifikasiSeeder::class,
-            SkillSeeder::class,
             ContactSeeder::class,
         ]);
     }

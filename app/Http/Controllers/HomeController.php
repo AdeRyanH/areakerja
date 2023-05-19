@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
 use App\Mail\SendMail2;
-use App\Models\cabang;
 use App\Models\Category;
 use App\Models\District;
 use App\Models\Job;
@@ -62,9 +61,6 @@ class HomeController extends Controller
             ->get();
 
         $title = 'Lowongan Kerja di Yogyakarta';
-        
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
 
         // $province = province::get(); 
 
@@ -73,7 +69,7 @@ class HomeController extends Controller
 
         // dd($searchLocations);
 
-        return view('index', compact(['title','riwayatlist','wishlist','ipaddress','searchLocations','searchCategories','searchByCategory','jobs','sidbarJobs','wishh','cabang','cabanghr','regency','provinsi']));
+        return view('index', compact(['title','riwayatlist','wishlist','ipaddress','searchLocations','searchCategories','searchByCategory','jobs','sidbarJobs','wishh','regency','provinsi']));
     }
 
     public function search(Request $req)
@@ -132,13 +128,11 @@ class HomeController extends Controller
 
         $banner = 'Search results';
         $title  = 'Lowongan Kerja di Yogyakarta';
-
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
+        
         $province = province::all(); 
         // dd($jobs);
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories','cabang','cabanghr','province']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'wishlist', 'ipaddress', 'jobs', 'banner', 'searchLocations', 'sidbarJobs', 'searchCategories','province']));
     }
 
     public function aboutus()
@@ -147,21 +141,17 @@ class HomeController extends Controller
         // echo Carbon::now()->diffForHumans();
 
         $title = 'Tentang Kami';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $provinsi = province::all();
 
-        return view('user.aboutus', compact(['title','cabang','cabanghr','provinsi']));
+        return view('user.aboutus', compact(['title','provinsi']));
     }
 
     public function kontak()
     {
         $title = 'Kontak Kami';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $provinsi = province::all();
 
-        return view('user.kontak', compact(['title','cabang','cabanghr','provinsi']));
+        return view('user.kontak', compact(['title','provinsi']));
     }
 
     public function formpasang(Request $request)
@@ -257,81 +247,6 @@ class HomeController extends Controller
         return view('user.kontak');
     }
 
-    // public function addcart(Request $request)
-    // {
-    //     $id   = $request->id;
-    //     $time = 60 * 24 * 14;
-    //     echo $id;
-    //     $value = 0;
-    //     if (Cookie::get('cart') !== null) {
-    //         $anonim = Cookie::get('cart');
-    //         DB::table("cart")->insert(["anonim" => $anonim, "product_id" => $id]);
-
-    //         return 0;
-    //     } else {
-    //         $value = DB::table("cart")->max("anonim") + 1;
-    //         if (empty($value)) {
-    //             $value = 0;
-    //         }
-    //         DB::table("cart")->insert(["anonim" => $value, "product_id" => $id]);
-    //         $cookie = cookie('cart', $value, $time);
-
-    //         return response()->cookie($cookie);
-    //     }
-    // }
-
-    // function getMAcAddressExec()
-    // {
-    //     echo getMAcAddressExec();
-    //         return substr(exec('getmac'), 0, 17);
-    // }
-
-    // function getMAcAddressShellExec()
-    // {
-    //     echo getMAcAddressShellExec();
-    //     return substr(shell_exec('getmac'), 159,20);
-    // }
-
-    private function _generatePaymentToken($order, $total, $code)
-    {
-        $this->initPaymentGateway();
-
-        // dd($total);
-        // $code = "INV/202107006/VII/XXI/00003";
-        $customerDetails = [
-            'first_name' => $order->namaperusahaan,
-            'email'      => $order->email,
-            'phone'      => $order->notelp,
-        ];
-
-        $params = [
-            'enable_payments'     => \App\Models\Pembayaran::PAYMENT_CHANNELS,
-            'transaction_details' => [
-                'order_id'     => $code,
-                'gross_amount' => $total,
-            ],
-            'customer_details' => $customerDetails,
-            'expiry'           => [
-                'start_time' => date('Y-m-d H:i:s T'),
-                'unit'       => \App\Models\Pembayaran::EXPIRY_UNIT,
-                'duration'   => \App\Models\Pembayaran::EXPIRY_DURATION,
-            ],
-        ];
-
-        $snap = \Midtrans\Snap::createTransaction($params);
-        // dd($snap);exit;
-
-        if ($snap->token) {
-            // dd($snap->redirect_url);
-            $order->payment_token = $snap->token;
-            $order->payment_url   = $snap->redirect_url;
-            // $order->save();
-            // dd($snap->redirect_url);
-            // return redirect()->to($snap->redirect_url);
-        }
-    }
-
-
     public function province(Request $req,$id)
     {
         $ipaddress = '';
@@ -379,14 +294,10 @@ class HomeController extends Controller
 
         $title = 'Lowongan Kerja di Yogyakarta';
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
-
+        $provinceshow = province::where('id',$id)->first();
         $province = province::all();
 
-        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'cabang', 'cabanghr', 'province']));
+        // dd($provinceshow);
+        return view('index', compact(['title', 'riwayatlist', 'wishlist', 'ipaddress', 'searchLocations', 'searchCategories', 'searchByCategory', 'jobs', 'sidbarJobs', 'wishh', 'province','provinceshow']));
     }
-
-
-    
 }

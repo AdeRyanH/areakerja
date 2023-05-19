@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         <div class="row align-items-center justify-content-between d-flex" style="margin-left: 2px; margin-right:2px">
-            {{ trans('cruds.company.title_singular') }} {{ trans('global.list') }}
+            <b>Company List</b>
             <a class="btn btn-success ml-2" href="{{ route("admin.companies.create") }}">
                 <i class="fa fa-plus mr-2" aria-hidden="true"></i>
                 {{ trans('global.add') }} {{ trans('cruds.company.title_singular') }}
@@ -62,7 +62,7 @@
                             </td>
                             <td style="width: 150px; vertical-align: middle; text-align: center;">
                                 @if($company->gambar)
-                                    <img src="{{ url('img/companylogo') }}/{{ $company->gambar }}" style="width: 100px; height: 70px;">
+                                    <img src="{{ $company->gambar }}" style="width: 100px; height: 70px;">
                                 @endif
                             </td>
                             <td align="center">

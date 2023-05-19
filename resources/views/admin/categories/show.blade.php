@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            {{ trans('global.show') }} {{ trans('cruds.category.title') }}
+            <b>Show Category</b>
         </div>
 
         <div class="card-body">

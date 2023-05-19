@@ -25,6 +25,7 @@ class RedirectIfAuthenticated
             1 => 'admin',
             3 => 'mitra',
             4 => 'kandidat',
+            5 => 'superadmin',
         ];
 
         if (Auth::check()) {

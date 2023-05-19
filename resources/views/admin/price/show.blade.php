@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.job.title') }}
+        <b>Show Price</b>
     </div>
 
     <div class="card-body">
@@ -66,6 +66,14 @@
                         </th>
                         <td>
                             {{ $price->warna ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Pesan
+                        </th>
+                        <td>
+                            {{ $price->pesan ?? '' }}
                         </td>
                     </tr>
                 </tbody>

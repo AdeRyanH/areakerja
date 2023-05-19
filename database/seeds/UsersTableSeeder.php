@@ -166,6 +166,13 @@ class UsersTableSeeder extends Seeder
                 'password'       => '$2y$10$p2lAE/PWMuS6r/5BWo/uDOE/6ju0WeKff9J7AqHmzSLnd4yRSTljy',
                 'remember_token' => null,
             ],
+            [
+                'id'             => 21,
+                'name'           => 'SuperAdmin',
+                'email'          => 'superadmin@superadmin.com',
+                'password'       => Hash::make('test-superadmin'),
+                'remember_token' => null,
+            ],
         ];
 
         User::insert($users);

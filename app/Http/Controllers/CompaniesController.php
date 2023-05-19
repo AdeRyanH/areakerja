@@ -56,9 +56,6 @@ class CompaniesController extends Controller
             ->orderBy('id', 'desc')
             ->take(0)
             ->get();
-
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         
         return view('company.index', compact(
             'title',
@@ -73,8 +70,6 @@ class CompaniesController extends Controller
             'sidebarJobs',
             'ipaddress',
             'sidebarCategories',
-            'cabang',
-            'cabanghr'
         ));
     }
 }

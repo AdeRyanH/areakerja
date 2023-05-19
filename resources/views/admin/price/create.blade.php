@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        Create Price
+        <b>Create Price</b>
     </div>
 
     <div class="card-body">

@@ -30,6 +30,8 @@ class Price extends Migration
 
             $table->string('keterangan')->nullable();
 
+            $table->string('pesan')->nullable();
+
             $table->timestamps();
 
             $table->softDeletes();

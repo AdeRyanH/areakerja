@@ -16,11 +16,19 @@
                         <span class="fa fa-newspaper-o mr-1"></span> Tips Kerja
                     </a>
                 </li>
+
+            @if(Request::is('artikel/*' , 'artikel' , 'pilihpaket'))
+            @else
                 <li class="nav-item mb-2 mb-md-0 mr-2">
                   <div class="dropdown">
                     <a role="button" class="nav-link form-pasang5" href="" data-bs-toggle="dropdown" aria-expanded="false"
                         style="color: #fe7b54;font-size: 14px; background-color: #fe7c5400; font-weight:600">
-                        <span class="fa-fw fas fa-map-marker-alt"></span> Provinsi Lainnya
+                        <span class="fa-fw fas fa-map-marker-alt"></span> 
+                        @if(Request::is('province/*'))
+                            {{ $provinceshow->name }}
+                        @else
+                            Provinsi Lainnya
+                        @endif
                     </a>
                     <ul class="dropdown-menu dropdown-menu-start mt-1" style="height: 250px; overflow-y: auto">
                       @foreach ($provinsi as $p)
@@ -32,6 +40,10 @@
                     </ul>
                   </div>
                 </li>
+            @endif
+                
+
+
                 {{-- <li class="nav-item mb-2 mb-md-0 mr-3">
                     <a role="button" class="nav-link form-pasang px-2 " href="{{ route('daftarkandidat') }}"
                         style="color: #fee5ba;width:max-content;font-weight:600">

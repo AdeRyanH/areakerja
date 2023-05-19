@@ -10,6 +10,7 @@ use App\Models\province;
 use App\Models\Regency;
 use App\Models\Riwayat;
 use App\Models\Wish;
+use Carbon\Carbon;
 
 class LocationController extends Controller
 {
@@ -31,7 +32,7 @@ class LocationController extends Controller
         } else {
             $ipaddress = 'UNKNOWN';
         }
-
+        Carbon::setLocale('id');
         $location         = Regency::where('name', $name)->first();
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $wishh            = Wish::where([['ip', '=', $ipaddress]])->get();
@@ -47,10 +48,8 @@ class LocationController extends Controller
 
         $title = 'Lowongan Kerja daerah' . ' ' . $location->name;
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $provinsi = Province::all(); 
 
-        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','cabang','cabanghr','provinsi']));
+        return view('jobs.index', compact(['title', 'wishh', 'riwayatlist', 'ipaddress', 'wishlist', 'jobs', 'banner', 'searchCategories', 'searchLocations', 'sidbarJobs','provinsi']));
     }
 }

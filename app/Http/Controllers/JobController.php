@@ -40,7 +40,7 @@ class JobController extends Controller
         $wishlist         = Wish::where('ip', $ipaddress)->get();
         $riwayatlist      = Riwayat::where('ip', $ipaddress)->get();
         $jobs             = Job::with('company')->paginate(0);
-        $searchLocations  = Location::pluck('name', 'id');
+        $searchLocations  = Regency::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $wishh            = Wish::all();
         $sidbarJobs       = Job::whereTopRated(true)
@@ -49,8 +49,6 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Lowongan Kerja di Yogyakarta';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
 
         return view(
@@ -62,8 +60,6 @@ class JobController extends Controller
                 'searchLocations',
                 'searchCategories',
                 'sidbarJobs', 'riwayatlist', 'wishlist', 'ipaddress', 'wishh',
-                'cabang',
-                'cabanghr',
                 'province'
             ])
         );
@@ -98,16 +94,11 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
 
         $title = 'Lowongan Kerja ' . $job->title . ' di ' . $job->company->name;
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
-        // Alert::success('Sukses Membuka');
 
         return view(
             'jobs.show',
             compact(['title', 'job', 'riwayatlist', 'searchLocations', 'searchCategories', 'wishlist', 'ipaddress', 'wishh',
-                'cabang',
-                'cabanghr',
                 'province'])
         );
     }
@@ -259,8 +250,8 @@ class JobController extends Controller
         } else {
             $ipaddress = 'UNKNOWN';
         }
-        $paket            = Price::where('keterangan', 'biasa')->get();
-        $paket2           = Price::where('keterangan', 'mitra')->get();
+        $paket            = Price::get();
+        // $paket            = Price::where('keterangan', 'biasa')->get();
         // $searchLocations  = Location::pluck('name', 'id');
         $searchCategories = Category::pluck('name', 'id');
         $searchByCategory = Category::withCount('jobs')
@@ -287,24 +278,21 @@ class JobController extends Controller
         $riwayatlist = Riwayat::where('ip', $ipaddress)->get();
         $title       = 'Pasang Lowongan Kerja';
 
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $contact = contact::first();
         $provinsi = province::all();
+        // dd($paket);
         return view(
             'pasang.paket',
             compact([
                 'title',
                 'paket',
-                'paket2',
+                // 'paket2',
                 'searchCategories',
                 'searchByCategory',
                 'jobs',
                 'sidbarJobs',
                 'sidebarCategories',
                 'riwayatlist',
-                'cabang',
-                'cabanghr',
                 'contact',
                 'provinsi'
             ])
@@ -367,8 +355,6 @@ class JobController extends Controller
 
         $banner = 'Jobs';
         $title  = 'Rekomendasi Lowongan Kerja';
-        $cabang = cabang::get();
-        $cabanghr = cabang::get()->last();
         $province = province::all(); 
 
         return view(
@@ -379,7 +365,7 @@ class JobController extends Controller
                 'banner',
                 'searchLocations',
                 'searchCategories',
-                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','cabang','cabanghr','province'
+                'sidbarJobs', 'wishlist', 'ipaddress', 'wishh','province'
             ])
         );
     }
