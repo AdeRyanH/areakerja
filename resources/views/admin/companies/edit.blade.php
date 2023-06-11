@@ -46,7 +46,7 @@
                     <img src="{{ $company->gambar }}" style="height: 100px;">
                     <p style="color: #6c757d">Gambar lama</p>
                 </div>
-                <input type="file" id="gambar" name="gambar" value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" required>
+                <input type="file" id="gambar" name="gambar" value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" >
                 <p class="helper-block">
                     {{ trans('cruds.company.fields.name_helper') }}
                 </p>
