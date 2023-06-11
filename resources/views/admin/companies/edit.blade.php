@@ -41,8 +41,12 @@
             </div>
 
             <div class="form-group {{ $errors->has('gambar') ? 'has-error' : '' }}">
-                <label for="gambar">Gambar*</label>
-                <input type="text" id="gambar" name="gambar" class="form-control" value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" required>
+                <label for="gambar">Gambar Baru*</label><br>
+                <div class="" style="margin-bottom: 20px; margin-top: 10px">
+                    <img src="{{ $company->gambar }}" style="height: 100px;">
+                    <p style="color: #6c757d">Gambar lama</p>
+                </div>
+                <input type="file" id="gambar" name="gambar" value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" >
                 <p class="helper-block">
                     {{ trans('cruds.company.fields.name_helper') }}
                 </p>

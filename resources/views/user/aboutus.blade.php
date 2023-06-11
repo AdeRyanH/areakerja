@@ -6,7 +6,7 @@
 <meta property="og:description" content="Platform lowongan kerja no. 1 untuk mendapatkan talenta terbaik bagi perusahaan anda.">
 <meta property="og:image" content="{{ asset('img/img-01.png') }}">
 <meta name="description" content="Areakerja adalah perusahaan berbasis teknologi informasi yang berpusat di Yogyakarta. Perusahaan ini berfokus pada platform untuk mencari lowongan kerja di Daerah Istimewa Yogyakarta (DIY).">
-<meta name="keywords" content="Tentang Kami">p
+<meta name="keywords" content="Tentang Kami">
 @endsection
 @section('home')
     <section class="relative" id="home">

@@ -52,14 +52,14 @@
                             @endif
                         </td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>
                             Sumber Logo
                         </th>
                         <td>
                             {{ $company->gambar }}
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

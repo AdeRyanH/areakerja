@@ -5,5 +5,13 @@
 5. php artisan key:generate
 6. php artisan migrate:fresh --seed
 7. php artisan serve
-8. php artisan schedule:work
-9. composer dump-autoload
+
+*Note:
+Jika ingin menggunakan atau menjalankan fitur kontak kami silahkan isi 
+
+MAIL_USERNAME={alamat email kamu}
+MAIL_PASSWORD={app password email kamu}
+MAIL_FROM_ADDRESS={alamat email kamu}
+MAIL_ADMIN_ADDRESS={alamat email kamu}
+
+di dalam .env

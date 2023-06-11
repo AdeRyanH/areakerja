@@ -9,7 +9,7 @@
                     {{ trans('global.dashboard') }}
                 </a>
             </li>
-            @can('user_management_access')
+            {{-- @can('user_management_access')
                 <li class="nav-item nav-dropdown {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'open' : '' }} {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'open' : '' }} {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'open' : '' }}">
                     <a class="nav-link  nav-dropdown-toggle" href="#">
                         <i class="fa-fw fas fa-users nav-icon">
@@ -43,9 +43,9 @@
                             </li>
                     </ul>
                 </li>
-            @endcan
+            @endcan --}}
 
-            <li class="nav-item nav-dropdown {{ request()->is('admin/mitra') || request()->is('admin/mitra/*') ? 'open' : '' }} {{ request()->is('admin/lowonganmitra') || request()->is('admin/lowonganmitra/*') ? 'open' : '' }}">
+            {{-- <li class="nav-item nav-dropdown {{ request()->is('admin/mitra') || request()->is('admin/mitra/*') ? 'open' : '' }} {{ request()->is('admin/lowonganmitra') || request()->is('admin/lowonganmitra/*') ? 'open' : '' }}">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-building nav-icon">
 
@@ -70,9 +70,9 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
-            <li class="nav-item nav-dropdown ">
+            {{-- <li class="nav-item nav-dropdown ">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-building nav-icon">
 
@@ -97,7 +97,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a href="{{ route("admin.jobs.index") }}" class="nav-link {{ request()->is('admin/jobs') || request()->is('admin/jobs/*') ? 'active' : '' }}">
