@@ -36,8 +36,8 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('gambar') ? 'has-error' : '' }}">
-                <label for="gambar">gambar*</label>
-                <input type="text" id="gambar" name="gambar" class="form-control" value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" required>
+                <label for="gambar">gambar*</label><br>
+                <input type="file" id="gambar" name="gambar"  value="{{ old('gambar', isset($company) ? $company->gambar : '') }}" required>
                 <p class="helper-block">
                     {{ trans('cruds.company.fields.name_helper') }}
                 </p>

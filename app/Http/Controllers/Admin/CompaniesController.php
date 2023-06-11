@@ -29,10 +29,13 @@ class CompaniesController extends Controller
 
     public function store(Request $request)
     {
+        $namaFile = '/img/companylogo/' . time() . '.' . $request->gambar->extension();
+        $request->gambar->move(public_path('img/companylogo'), $namaFile);
+        
         $slug_judul = Str::slug($request->get('name'));
         Company::insert([
             'name'      => $request->name,
-            'gambar'    => $request->gambar,
+            'gambar'    => $namaFile,
             'deskripsi' => $request->deskripsi,
             'alamat'    => $request->alamat,
             'slug'      => $slug_judul,
@@ -49,14 +52,20 @@ class CompaniesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $slug_judul = Str::slug($request->get('name'));
         $companies = Company::find($id);
+        $slug_judul = Str::slug($request->get('name'));
+
+        if ($request->gambar) {
+            $namaFile = '/img/companylogo/' . time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('img/companylogo'), $namaFile);
+            unlink(public_path($companies->gambar));
+        }
 
             $post_data = [
                 'name'      => $request->name,
                 'deskripsi' => $request->deskripsi,
                 'alamat'    => $request->alamat,
-                'gambar'    => $request->gambar,
+                'gambar'    => $namaFile,
                 'slug'      => $slug_judul,
             ];
 
@@ -73,7 +82,8 @@ class CompaniesController extends Controller
 
     public function destroy(Company $company)
     {
-        $company->delete();
+        unlink(public_path($company->gambar));
+        $company->delete();   
 
         return back();
     }

@@ -34,13 +34,13 @@ class JobsController extends Controller
     {
         $companies = Company::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $locations = Location::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        // $locations = Location::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $categories = Category::all()->pluck('name', 'id');
 
         $kota = Regency::all();
 
-        return view('admin.jobs.create', compact('companies', 'locations', 'categories','kota'));
+        return view('admin.jobs.create', compact('companies', 'categories','kota'));
     }
 
     public function store(Request $request)
